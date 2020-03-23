@@ -33,8 +33,8 @@
 | ls -la  | show contents and size of files in current folder  |
 |    |   |
 | \  |  to start a command |
-| \?  | to give list of commands  |
+| \ ?  | to give list of commands  |
 |    |    |
 | logout | log out of session |
 
-|   |   |
+
