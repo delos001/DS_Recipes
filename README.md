@@ -33,8 +33,7 @@
 
 |Command|Result|
 |---|---|
-|git push -u origin master  | Should prompt you to update password |
-|git push origin master |    |
+|git push -u origin master OR git push origin master | Should prompt you to update password |
 |git remote -v | identify your repository URL|
 |git remote set-url origin https://Username@github.com/Username/MyRepo.git| manually set your repository URL|
 
