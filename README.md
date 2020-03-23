@@ -10,6 +10,19 @@
 -FileZilla
 -Bitzvie
 
-#### Linux Resources
+## Linux Resources
 -http://www.computerhope.com/unix.htm
 
+|Command|Result|
+|---|---|
+|mkdir   | test |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
