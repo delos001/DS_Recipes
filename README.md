@@ -22,14 +22,19 @@
 
 |Command|Result|
 |---|---|
-|mkdir   | test |
+|mkdir  | create a folder in your directory |
+|mkdir project_1   | create a folder called project_1  |
 |   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| pwd | produce current path location  |
+| cd  | change directory  |
+| cd ..  | go up one level to parent folder  |
+|     |   |
+| ls  | show contents of current folder  |
+| ls -la  | show contents and size of files in current folder  |
+|    |   |
+| \  |  to start a command |
+| \?  | to give list of commands  |
+|    |    |
+| logout | log out of session |
+
 |   |   |
