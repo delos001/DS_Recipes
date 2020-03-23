@@ -4,6 +4,7 @@
 |generate tables  | https://www.tablesgenerator.com/markdown_tables |
 | markdown cheatsheet   | https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet |
 
+---
 
 ## Linux Resources
 -http://www.computerhope.com/unix.htm
@@ -25,6 +26,7 @@
 |    |    |
 | logout | log out of session |
 
+---
 
 ## FTP/sFTP
 #### General
