@@ -5,20 +5,6 @@
 | markdown cheatsheet   | https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet |
 
 
-
-
-
-## FTP/sFTP
-#### General
-* custom write-up: 
-https://blog.slavv.com/the-1700-great-deep-learning-box-assembly-setup-and-benchmarks-148c5ebe6415
-
-```
-* Cyberduck
-* FileZilla
-* Bitzvie
-```
-
 ## Linux Resources
 -http://www.computerhope.com/unix.htm
 
@@ -40,3 +26,14 @@ https://blog.slavv.com/the-1700-great-deep-learning-box-assembly-setup-and-bench
 | logout | log out of session |
 
 
+## FTP/sFTP
+#### General
+* custom write-up: 
+https://blog.slavv.com/the-1700-great-deep-learning-box-assembly-setup-and-benchmarks-148c5ebe6415
+
+```
+- Cyberduck
+- FileZilla
+- Bitzvie
+- Secure Shell SSh
+```
