@@ -1,8 +1,13 @@
 ## Markdown Resources
 |Function|Source|
 |---|---|
+|markdown cheatsheet| https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet |
 |generate tables  | https://www.tablesgenerator.com/markdown_tables |
-| markdown cheatsheet   | https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet |
+
+## GitHub Repositories of Interest
+|Description|URL|
+|---|---|
+|Gallery of Interesting Notebooks|https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks|
 
 ---
 
