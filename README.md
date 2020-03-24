@@ -11,7 +11,7 @@
 
 ---
 
-## GitHub Quick Resources
+## GitHub Quick Commands
 
 |Command|Result|
 |---|---|
