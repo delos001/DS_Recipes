@@ -37,12 +37,9 @@
 |git remote -v | identify your repository URL|
 |git remote set-url origin https://Username@github.com/Username/MyRepo.git| manually set your repository URL|
 
-
+---
 ## FTP/sFTP
 #### General
-* custom write-up: 
-https://blog.slavv.com/the-1700-great-deep-learning-box-assembly-setup-and-benchmarks-148c5ebe6415
-
 ```
 - Cyberduck
 - FileZilla
