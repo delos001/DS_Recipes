@@ -6,6 +6,16 @@
 
 ---
 
+## GitHub Quick Resources
+
+|Command|Result|
+|---|---|
+|git push -u origin master OR git push origin master | Should prompt you to update password |
+|git remote -v | identify your repository URL|
+|git remote set-url origin https://Username@github.com/Username/MyRepo.git| manually set your repository URL|
+
+---
+
 ## Linux Resources
 -http://www.computerhope.com/unix.htm
 
@@ -25,17 +35,6 @@
 | \ ?  | to give list of commands  |
 |    |    |
 | logout | log out of session |
-
----
-
-## GitHub Quick Resources
--http://www.computerhope.com/unix.htm
-
-|Command|Result|
-|---|---|
-|git push -u origin master OR git push origin master | Should prompt you to update password |
-|git remote -v | identify your repository URL|
-|git remote set-url origin https://Username@github.com/Username/MyRepo.git| manually set your repository URL|
 
 ---
 ## FTP/sFTP
