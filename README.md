@@ -43,7 +43,6 @@
 
 ---
 ## FTP/sFTP
-#### General
 ```
 - Cyberduck
 - FileZilla
