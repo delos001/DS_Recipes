@@ -1,4 +1,4 @@
-/*
+/* SAS Proc Factor function parameters
 Proc Factor
 	data=value: input data set
 	method=value: method of estimation: principal, prinit, ml, uls  
