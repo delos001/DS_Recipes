@@ -18,4 +18,4 @@ Proc Factor
 	data=value
 	method=principal
 	priors=smc
-  rotate=none
+	rotate=none
