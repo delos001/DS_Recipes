@@ -1,6 +1,10 @@
 
 /*
-input data set
+note: other arugments left off to focus those directly needed for principal FA (see parent Factora Analysis tab for other arguments).  
+Example, you will want to specify 
+    the number of common factors (nfactors) or the mineigen, or proportion too. 
+    (SAS defaults to proportion if none are specified)
+    
 method of estimation: principal, prinit, ml, uls  these are: 
       (interative principal FA, maximul likelihood, unweighted least squares)
 set prior communality estimates: max, smc, one (required):
