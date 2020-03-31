@@ -66,3 +66,30 @@ Proc Factor
 	method=ULS
 	priors=smc
 	rotate=none
+
+
+/*----------------------------------------------------------------------------------------------
+General Examples
+----------------------------------------------------------------------------------------------*/
+proc factor data=hsb;
+out=hsb_ml_factors;
+heywood;
+	method=ML;
+	priors=smc;
+	rotate=varimax;
+	nfactors=3;
+	plots=(scree loadings);
+	var rdg wrtg math sci civ locus concpet mot sex;
+run;
+quit;
+
+ods graphics on;
+proc factor data=hsb;
+	method = principal;
+	priors=smc;
+	rotate=varimax reorder;
+	nfactor=3;
+	plots=(scree loadings);
+	var rdg wrtg math sci civ;
+run;
+ods graphics off;
