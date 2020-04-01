@@ -1,3 +1,12 @@
+
+/*
+We will use the newly created response variable: train_response, when fitting our models. 
+If you save the predicted values or the residuals to a new resultant dataset, you will have 
+access to the predicted and/or residual values for ALL of the records in the dataset. In other 
+words, you’ll have predicted or residuals for both the training and the validation components 
+of the dataset. 
+*/
+
 u=uniform(123);
 if (u<0.70) then train=1;
 else train=0;
