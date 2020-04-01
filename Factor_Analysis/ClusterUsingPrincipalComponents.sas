@@ -1,4 +1,12 @@
+/*
+This is an example to perform cluster analysis (see code directly above) and 
+then use a macro to get plot the clusters and color by their cluster.
 
+Note that PROC CLUSTER performs hierarchical clustering (see Chapter 6 in Applied 
+Multivariate Data Analysis) so we do not need to specify the number of clusters in advance. 
+We will use the SAS procedure PROC TREE to assign observations to a specified number of 
+clusters after we have performed the hierarchical clustering
+*/
 
 ods graphics on;
 title Principal Component Analysis using PROC PRINCOMP;
