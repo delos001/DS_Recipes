@@ -13,9 +13,9 @@
 -Linearity: The target (dependent) variable is a linear combination of the input (independent) variables.
 -Multicollinearity: There is no perfect correlation between independent variables.
 -Error Terms:
-The error terms have a mean or average value of zero
-The error terms are normally distributed
-There is no observable pattern to the error terms (homoscedastic).
+  The error terms have a mean or average value of zero
+  The error terms are normally distributed
+  There is no observable pattern to the error terms (homoscedastic).
 ````
 ---
 
