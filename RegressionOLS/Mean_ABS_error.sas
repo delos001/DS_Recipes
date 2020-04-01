@@ -1,3 +1,5 @@
+/*NOTE: this is continuation from CrossValidation.sas script*/
+
 
 Data crossval2;
 	set origModel;
