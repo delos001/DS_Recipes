@@ -8,8 +8,7 @@ Assume a data set has a BINARY Target Variable: 0 or 1
 
 #### Binomial distribution concerns replication of Bernoulli sequence of trials
 - Bernoulli trials only have 2 outcomes:
-- 0 if unsuccessful
-- 1 if sucessful
+- 0 if unsuccessful, 1 if sucessful
 - Binomial distribution Is concerned with how many successes in n trials
 - Probabilities must add up to 1
   
@@ -25,6 +24,7 @@ Assume a data set has a BINARY Target Variable: 0 or 1
 - assumes mean equals the variance  (if mean doesn't equal variance, use Negative binomial distribution)
 
 #### Negative Binomial used for count/poisson-like data where mean <> variance
+- what is the probability I need to approach 20 people (n) to obtain 10 signatures (r) if the probability of getting a signature is 0.6
 - extradispersion:
     + overdispersion: mean is much less than variance
     + underdispersed distribution: mean exceeds the variance
