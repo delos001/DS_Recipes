@@ -18,18 +18,20 @@ Assume a data set has a BINARY Target Variable: 0 or 1
 - probabilities must still add up to 1
 - multinomial distribution mass function
 
-#### Poisson: count variables often follow this distribution
-- example: children per household usually peaks around 2 or 3, and 
-    + probability of having larger numbers of kids gets lower as number of kids increases, ie: the right tail drops off quickly to the right
-- assumes mean equals the variance  (if mean doesn't equal variance, use Negative binomial distribution)
-
-#### Negative Binomial used for count/poisson-like data where mean <> variance
+#### Negative Binomial used where mean <> variance
 - what is the probability I need to approach 20 people (n) to obtain 10 signatures (r) if the probability of getting a signature is 0.6
 - extradispersion:
     + overdispersion: mean is much less than variance
     + underdispersed distribution: mean exceeds the variance
 - negative binomial preferred with overdispersion
 - number of sucessess is fixed and number of trials varies (this is opposite concept of binomial regression)
+
+#### Poisson: count variables often follow this distribution
+- example: children per household usually peaks around 2 or 3, and 
+    + probability of having larger numbers of kids gets lower as number of kids increases, ie: the right tail drops off quickly to the right
+- This is special type of negative binomial
+    + where mean equals the variance  
+    + if mean doesn't equal variance, use Negative binomial distribution
 
 ---
 
