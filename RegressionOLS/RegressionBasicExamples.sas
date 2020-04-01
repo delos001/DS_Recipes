@@ -52,7 +52,7 @@ quit;
 EXAMPLE1
 regression statement using the temp1 data
 model of dependent variable vs. independent variable
-/*----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------*/
 
 proc reg data=temp1;
 	model saleprice = masvnrarea;
@@ -61,7 +61,7 @@ run;
 /*----------------------------------------------------------------------------------
 EXAMPLE2
 regression for multiple variables vs. response variable (dependent variable) saleprice
-/*----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------*/
 proc reg data=temp1;
 	model saleprice=masvnrarea grlivarea BsmtFinSF2;
 run;
@@ -70,7 +70,7 @@ run;
 EXAMPLE3
 scatter plot of temp1 data
 create linear regression line in the scatter plot
-/*----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------*/
 proc sgplot data=temp1;
 	reg x=masvnrarea y=saleprice / lineattrs=(color=red thickness=3);
 run;
@@ -79,7 +79,7 @@ run;
 EXAMPLE4
 the /P gets the predicted response
 creates an output that has the predicted values included in the output
-/*----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------*/
 roc reg data=manatee;
 	model deaths=boats / P;
 	
@@ -90,7 +90,7 @@ OUTPUT OUT = modelout  PREDICTED = PRED;
 EXAMPLE5
 the /P gets the predicted response
 creates an output that has the predicted values included in the output
-/*----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------*/
 proc reg data=mbmod1a;
 	model 
 		Target_Wins         /*use multiple dependent variables
