@@ -6,16 +6,32 @@ Assume a data set has a BINARY Target Variable: 0 or 1
 - Probability value from OLS regression can take on values > 100% or < 0%
 - Even if the Predicted value is truncated, the predictions are usually not good
 
-- Binomial distribution concerns replication of Bernoulli sequence of trials
-  + Bernoulli trials only have 2 outcomes:
-  + 0 if unsuccessful
-  + 1 if sucessful
-  + Binomial distribution Is concerned with how many successes in n trials
-  + Probabilities must add up to 1
+#### Binomial distribution concerns replication of Bernoulli sequence of trials
+- Bernoulli trials only have 2 outcomes:
+- 0 if unsuccessful
+- 1 if sucessful
+- Binomial distribution Is concerned with how many successes in n trials
+- Probabilities must add up to 1
   
 - Probability mass function: determines how distributions appear
-  + P(i)=〖combination(〗_i^n)∗p^i 〖(1−p)〗^(n−i) where i= number of sucesses 0….n
 
+#### Multinomial trial outcomes (instead of 2 with binomial)
+- probabilities must still add up to 1
+- multinomial distribution mass function
+
+#### Poisson: count variables often follow this distribution
+- example: children per household usually peaks around 2 or 3, and 
+    + probability of having larger numbers of kids gets lower as number of kids increases, ie: the right tail drops off quickly to the right
+- assumes mean equals the variance  (if mean doesn't equal variance, use Negative binomial distribution)
+
+#### Negative Binomial used for count/poisson-like data where mean <> variance
+- extradispersion:
+    + overdispersion: mean is much less than variance
+    + underdispersed distribution: mean exceeds the variance
+- negative binomial preferred with overdispersion
+- number of sucessess is fixed and number of trials varies (this is opposite concept of binomial regression)
+
+---
 
 ## Logistic Tutorials
 
