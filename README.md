@@ -1,16 +1,17 @@
 ## Markdown Resources
 
-Function	Source
+|Function|Source|
 |---|---|
 |markdown cheatsheet|	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet|
 |generate tables|	https://www.tablesgenerator.com/markdown_tables|
 
+---
 ## GitHub Repositories of Interest
-
 |Description|	URL|
 |---|---|
 |Gallery of Interesting Notebooks|	https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks|
 
+---
 ## GitHub Quick Commands
 |Command|	Result|
 |---|---|
@@ -18,7 +19,8 @@ Function	Source
 |git remote -v|	identify your repository URL|
 |git remote set-url origin https://Username@github.com/Username/MyRepo.git| manually set your repository URL|
 
-Linux Resources
+---
+## Linux Resources
 -http://www.computerhope.com/unix.htm
 
 |Command|Result|
@@ -34,7 +36,8 @@ Linux Resources
 |\ ?|	to give list of commands
 |logout|	log out of session|
 
-FTP/sFTP
+---
+### FTP/sFTP
 ```
 Cyberduck
 FileZilla
