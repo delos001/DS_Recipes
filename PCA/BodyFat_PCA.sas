@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* In SAS, principal components are computed using numerical linear algebra */
 
 /* -------------------------------------------------------------------------------------
@@ -106,3 +107,45 @@ output out=model1_output predicted=Yhat ;
 run; 
 quit;
 ods graphics off;
+=======
+/* 
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+*/
+
+TITLE "Read in Body Fat Datafile and Begin Analysis";
+ODS GRAPHICS ON; * to get scatterplots with high-resolution graphics out of SAS procedures;
+
+
+libname mydata "/scs/wtm926/" access=readonly;
+
+
+DATA bodyfat;
+  SET mydata.bodyfat;
+ if (height > 40) ;
+RUN;
+
+
+proc sgplot data=bodyfat ;
+   scatter x=weight y=height ;
+run ;
+
+
+
+proc princomp data=bodyfat out=pca_output outstat=eigenvectors plots=scree(unpackpanel);
+  var age--wrist_cir ;
+run; 
+
+
+proc print data=pca_output(obs=10); run; 
+
+
+QUIT;
+>>>>>>> 410e3143e2365ba628386f53654e16a34d6951fa
