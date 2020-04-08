@@ -59,11 +59,18 @@ output out=TEMPFILE p=Y_REG;
 run;
 quit;
 
+********************* ;
+* POISSON REGRESSION ;
+********************* ;
 proc genmod data=TEMPFILE;
 model Y = X6 X8 /link=log dist=poi;
 output out=TEMPFILE p=Y_POI;
 run;
 
+
+********************* ;
+* NEGATIVE BIONOMIAL REGRESSION ;
+********************* ;
 proc genmod data=TEMPFILE;
 model Y = X6 X8 /link=log dist=nb;
 output out=TEMPFILE p=Y_NB;
@@ -72,7 +79,7 @@ run;
 proc print data=TEMPFILE;
 run;
 
-
+* SCORE POISSON REGRESSION MODEL
 data SCOREFILE;
 set TEMPFILE;
 P_SCORE_REG = 8.61795 + 0.22367*X6 - 0.07044*X8;
