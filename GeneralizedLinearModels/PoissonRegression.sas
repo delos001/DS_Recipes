@@ -1,4 +1,24 @@
 
+/*
+Note: Poisson Regression is actually a special case of Negative Binomial Regression 
+where the mean and the variance are equal. Many times, if the variance and the mean 
+are similar, both Poisson and Negative Binomial Regressions will converge to the same 
+result.
+
+
+Predictive Model for "Count Data"  positive integer target variables 0,1,2,3, ect
+
+The data follows either
+	“Poisson” Distribution
+	“Negative Binomial” Distribution
+  
+LINEAR REGRESSION Not usually a good choice because:
+  The relationship between INPUTS and TARGET are not linear
+  Linear Regression can yield a NEGATIVE prediction (Counts must be >0)
+ 
+Errors distribution won’t be random (“heteroskedastic”)
+*/
+
 
 *********************************************************;
 * CREATE THE DATA SET;
