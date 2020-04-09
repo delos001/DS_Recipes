@@ -1,4 +1,28 @@
 
+/*
+DEFINITION:
+Continuous target with a high frequency of records at zero.
+Data that is not zero, is distributed around some larger value.
+
+EXAMPLE
+	CAR CRASH
+	• Most people do NOT crash their cars, so insurance claims are usually zero.
+	• However, if you DO crash your car, your damage will be large (say $5000).
+	LOAN DEFAULT
+	• Most people do NOT default on loans, so losses are usually zero.
+	• However, if you DO default on a loan, your default will be large (say $100,000)
+	AIR TRAVEL
+	• Most people do NOT fly on airplanes every year, so miles travelled are zero
+However, if you DO fly on an airplane, you will usually travel at least 500 miles.
+
+Could try linear regression.  It might work, but it violates statistical assumptions 
+	and could lead to poor accuracy.
+Could try Tweedie Distribution approach: 
+	is mathematically intense and no guarantee it will be better than simple 
+		linear regression approach
+*/
+
+
 /*-----------------------------------------------------------------
 Model 1
 -----------------------------------------------------------------*/
