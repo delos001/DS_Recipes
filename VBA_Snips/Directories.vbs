@@ -1,5 +1,13 @@
 
 '----------------------------------------------------------------------------------------
+' OPEN A FOLDER CONTAINING THE DOCUMENT YOU ARE CURRENTLY WORKING IN---------------------
+' (so you don't need to specify path here)
+'----------------------------------------------------------------------------------------
+Dim PathCrnt As String
+PathCrnt = Application.ActiveWorkbook.Path
+
+
+'----------------------------------------------------------------------------------------
 ' OPEN A FOLDER AND LET USER CHOSE WHICH FILE TO OPEN------------------------------------
 ' doesn't apply to SP dirs
 '----------------------------------------------------------------------------------------
