@@ -9,3 +9,5 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range)
       Range(Cells(1, 1), Cells(LR, LC)).Interior.ColorIndex = xlNone
         Range(Cells(ActiveCell.Row, 1), Cells(ActiveCell.Row, LC)).Interior.ColorIndex = 4
     End If
+End Sub
+
