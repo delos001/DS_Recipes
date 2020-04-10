@@ -1,5 +1,18 @@
+
+'----------------------------------------------------------------------------------------
+' PROTECT OR UNPROTECT SHEETS
+'----------------------------------------------------------------------------------------
+ActiveSheet.Protect Password:="test"
+ActiveSheet.Protect DrawingObjects:=True, Contents:=True, Scenarios:=True   'This protects sheet
+	
+ActiveSheet.Unprotect Password:="test"                                      'This unprotects sheet
+ActiveSheet.Unprotect
+
+
+'----------------------------------------------------------------------------------------
 'UNPROTECT A PASSWOR PROTECTED SHEET WITHOUT PASSWORD---------
 'Put this code in the sheets VBA page and run it
+'----------------------------------------------------------------------------------------
 
 Sub PasswordBreaker()
     'Breaks worksheet password protection.
