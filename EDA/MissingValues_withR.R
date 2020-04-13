@@ -12,7 +12,9 @@ missmap(feat_comb,
 # VIM
 Library(VIM)
 
-
+# Mice
+Library(mice)
+md.pattern(feat_comb)  # Produces table showing missing variable values, produce heat-map like image
 
 #----------------------------------------------------------
 # CUSTOM FUNCTION TO GET MISSING VALUE STATS ON DF
