@@ -21,7 +21,7 @@
 # Load Data
 ################################################################################
 
-my.path <- 'C:\\Users\\Chad R Bhatti\\Documents\\Northwestern\\MSDS_454\\Naive_Bayes\\';
+my.path <- 'C:\\Users\\Delos001\\';
 my.file <- paste(my.path,'Qualitative_Bankruptcy_Data.csv',sep='');
 
 my.data <- read.csv(my.file,header=FALSE);
