@@ -49,7 +49,7 @@ my.data$BinaryClass <- ifelse(my.data$Class=='NB',0,1);
 table(my.data$Class,my.data$BinaryClass)
 
 
-# Can we compute useful numerical summaries?;
+# compute numerical summaries?;
 aggregate(my.data$BinaryClass,by=list(IndustrialRisk=my.data$IndustrialRisk),FUN=mean)
 aggregate(my.data$BinaryClass,by=list(ManagementRisk=my.data$ManagementRisk),FUN=mean)
 aggregate(my.data$BinaryClass,by=list(FinancialFlexibility=my.data$FinancialFlexibility),FUN=mean)
