@@ -14,51 +14,67 @@ library(zoo)
 #load files
 #from laptop
 feat_test = read.csv(file.path("C:/Users/delos001/OneDrive - QJA/My Files/NW Coursework/Predict 454 Advanced Modelling/Midterm Data",
-                               "dengue_features_test.csv"), sep=",", na.strings = c("NA", ""))
+                               "dengue_features_test.csv"), 
+                     sep=",", 
+                     na.strings = c("NA", ""))
 
 feat_train = read.csv(file.path("C:/Users/delos001/OneDrive - QJA/My Files/NW Coursework/Predict 454 Advanced Modelling/Midterm Data",
-                                "dengue_features_train.csv"), sep=",", na.strings = c("NA", ""))
+                                "dengue_features_train.csv"), 
+                      sep=",", 
+                      na.strings = c("NA", ""))
 
 labels_train = read.csv(file.path("C:/Users/delos001/OneDrive - QJA/My Files/NW Coursework/Predict 454 Advanced Modelling/Midterm Data",
-                                  "dengue_labels_train.csv"), sep=",", na.strings = c("NA", ""))
+                                  "dengue_labels_train.csv"), 
+                        sep=",", 
+                        na.strings = c("NA", ""))
 
 #from desktop
 feat_test = read.csv(file.path("C:/Users/Jason/OneDrive - QJA/My Files/NW Coursework/Predict 454 Advanced Modelling/Midterm Data",
-                   "dengue_features_test.csv"), sep=",", na.strings = c("NA", ""))
+                   "dengue_features_test.csv"), 
+                     sep=",", 
+                     na.strings = c("NA", ""))
 
 feat_train = read.csv(file.path("C:/Users/Jason/OneDrive - QJA/My Files/NW Coursework/Predict 454 Advanced Modelling/Midterm Data",
-                               "dengue_features_train.csv"), sep=",", na.strings = c("NA", ""))
+                               "dengue_features_train.csv"), 
+                      sep=",", 
+                      na.strings = c("NA", ""))
 
 labels_train = read.csv(file.path("C:/Users/Jason/OneDrive - QJA/My Files/NW Coursework/Predict 454 Advanced Modelling/Midterm Data",
-                               "dengue_labels_train.csv"), sep=",", na.strings = c("NA", ""))
+                               "dengue_labels_train.csv"), 
+                        sep=",", 
+                        na.strings = c("NA", ""))
 
 #add column to train file to distinguish train variables
 total_cases=labels_train[,4]
-feat_train=cbind(data="train", total_cases, feat_train)
+feat_train=cbind(data="train", 
+                 total_cases, 
+                 feat_train)
 str(feat_train)
 head(feat_train)
 tail(feat_train)
 
 #add columns to test file to combine later
-feat_test=cbind(data="test", total_cases=0,feat_test)
-str(feat_test)
-head(feat_test)
-tail(feat_test)
+feat_test=cbind(data="test", 
+                total_cases=0,
+                feat_test)
+# str(feat_test)
+# head(feat_test)
+# tail(feat_test)
 
 
 
 #combine test and train data for EDA
-feat_comb = rbind(feat_train, feat_test)
-str(feat_comb)
-head(feat_comb)
-tail(feat_comb)
+feat_comb = rbind(feat_train, 
+                  feat_test)
+# str(feat_comb)
+# head(feat_comb)
+# tail(feat_comb)
 
 #convert date to date format
-feat_comb$week_start_date = as.Date(feat_comb$week_start_date, format="%m/%d/%Y")
-str(feat_comb)
+feat_comb$week_start_date = as.Date(feat_comb$week_start_date, 
+                                    format="%m/%d/%Y")
 
 #convert climate data vars to continuous
-
 
 #create new variable with month 
 month = format(as.Date(feat_comb$week_start_date),"%m")
@@ -67,12 +83,15 @@ month = format(as.Date(feat_comb$week_start_date),"%m")
 norm_year = feat_comb$year - 2018
 
 #add new date variables to dataframe
-feat_comb = cbind(feat_comb[,1:6], month, norm_year, feat_comb[,7:26])
+feat_comb = cbind(feat_comb[,1:6], 
+                  month, 
+                  norm_year, 
+                  eat_comb[,7:26])
 
 #review combined test and train data set
-str(feat_comb)
-head(feat_comb)
-tail(feat_comb)
+#str(feat_comb)
+#head(feat_comb)
+#tail(feat_comb)
 
 ##################################################################################
 #
@@ -95,10 +114,16 @@ missing_stats = function(m) {
   return(miss)
 }
 
-round(t(data.frame(apply(feat_comb[, 1:28], 2, missing_stats))),2)
+round(t(data.frame(apply(feat_comb[, 1:28], 
+                         2, 
+                         missing_stats))),
+      2)
 
 #uses Amelia package
-missmap(feat_comb, main="Missing Map", y.labels = NULL, y.at=NULL, rank.order = TRUE)
+missmap(feat_comb, main="Missing Map", 
+        y.labels = NULL, 
+        y.at=NULL, 
+        rank.order = TRUE)
 
 ########## Summary Statistics ##########
 
@@ -142,7 +167,10 @@ round(summary_stats(feat_comb$reanalysis_air_temp_k),2)
 feat_comb_1 = feat_comb
 feat_comb_1$precipitation_amt_mm=NULL
 
-missmap(feat_comb_1, main="Missing Map", y.labels = NULL, y.at=NULL, rank.order = TRUE)
+missmap(feat_comb_1, main="Missing Map", 
+        y.labels = NULL, 
+        y.at=NULL, 
+        rank.order = TRUE)
 
 
 ##################################################################################
@@ -162,11 +190,20 @@ str(feat_comb_1)
 str(feat_comb_3)
 md.pattern(feat_comb_3)
 
-mice_plot <- aggr(feat_comb_3[,1:length(feat_comb_3)], col=c('light yellow','light green'), bars = FALSE,
-                  numbers=TRUE, sortVars=TRUE, combined = FALSE, axes = TRUE,
-                  varheight = FALSE, only.miss=TRUE, labels=names(feat_comb), 
-                  cex.numbers = 0.8, cex.axis=0.4, cex.lab=1,
-                  gap=FALSE, ylab=c("Missing data","Pattern"))
+mice_plot <- aggr(feat_comb_3[,1:length(feat_comb_3)], 
+                  col=c('light yellow','light green'), 
+                  bars = FALSE,
+                  numbers=TRUE, 
+                  sortVars=TRUE, 
+                  combined = FALSE, 
+                  axes = TRUE,
+                  varheight = FALSE, 
+                  only.miss=TRUE, 
+                  labels=names(feat_comb), 
+                  cex.numbers = 0.8, 
+                  cex.axis=0.4, cex.lab=1,
+                  gap=FALSE, 
+                  ylab=c("Missing data","Pattern"))
 
 
 #create imputation flag variables and set to zero if not missing and 1 if missing (a one is flag for imputation later)
@@ -220,10 +257,10 @@ feat_comb_3$station_min_temp_c_imp =
 feat_comb_3$station_precip_mm_imp = 
   as.factor(ifelse(is.na(feat_comb_3$station_precip_mm),1,0))
 
-str(feat_comb_3)
-names(feat_comb_3)
-head(feat_comb_3)
-tail(feat_comb_3)
+#str(feat_comb_3)
+#names(feat_comb_3)
+#head(feat_comb_3)
+#tail(feat_comb_3)
 
 
 
@@ -238,7 +275,10 @@ missing_stats = function(m) {
 }
 
 #use feat_comb_1 which has the original missing data
-orig_missing = round(t(data.frame(apply(feat_comb_1[, 9:length(feat_comb_1)], 2, missing_stats))),2)
+orig_missing = round(t(
+  data.frame(
+    apply(feat_comb_1[, 9:length(feat_comb_1)], 
+          2, missing_stats))), 2)
 
 cbind(dummy_impute, orig_missing)
 
@@ -251,12 +291,14 @@ str(impute)
 impute_test = zoo(impute)
 impute_out = na.approx(impute_test)
 impute_num = data.frame(impute_out)
-head(impute_num)
-str(impute_num)
+#head(impute_num)
+#str(impute_num)
 
-impute_out = cbind(feat_comb_3[,1:8], impute_num, feat_comb_3[,28:ncol(feat_comb_3)])
-head(impute_out)
-str(impute_out)
+impute_out = cbind(feat_comb_3[,1:8], 
+                   impute_num, 
+                   feat_comb_3[,28:ncol(feat_comb_3)])
+#head(impute_out)
+#str(impute_out)
 
 ########NOT USED IN ANALYSIS: SEE ABOVE FOR IMPUTATION METHOD
 #impute: 2 imputed data sets, 50 iterations, using predictive mean matching method
@@ -306,11 +348,17 @@ colNames2 = names(feat_eda[9:27])
 par(mfrow = c(3,3))
 par(mar=c(5,6,4,1)+.1)
 for (i in colNames1){
-  plot(feat_eda$total_cases, feat_eda[,c(i)], ylab=i, col=feat_eda$city)
-  legend("bottomright", legend=levels(feat_eda$city), col=1:length(feat_eda$city), pch=1)
+  plot(feat_eda$total_cases, 
+       feat_eda[,c(i)], 
+       ylab=i, 
+       col=feat_eda$city)
+  legend("bottomright", 
+         legend=levels(feat_eda$city), 
+         col=1:length(feat_eda$city), 
+         pch=1)
 }
-par(mfrow = c(1,1))
 
+par(mfrow = c(1,1))
 cor_mat = data.frame(round(cor(feat_eda[,9:27]),2))
 cor_mat
 write.csv(cor_mat, "cor_matrix.csv")
@@ -325,7 +373,9 @@ par(mfrow = c(3,3))
 for (k in colNames1){
   for (i in colNames2){
     plot(feat_eda[,c(k,i)], col=feat_eda$city)
-    legend("bottomright", legend=levels(feat_eda$city), col=1:length(feat_eda$city), pch=1)
+    legend("bottomright", legend=levels(feat_eda$city), 
+           col=1:length(feat_eda$city), 
+           pch=1)
   }
 }
 par(mfrow = c(1,1))
@@ -337,9 +387,11 @@ par(mfrow = c(1,1))
 bpf = function(b) {
   B = list()
   for (k in colNames1){
-    b = ggplot(feat_eda, aes_string(y=k))+ geom_boxplot(outlier.color='red',
-                   outlier.shape =1, outlier.size=3,
-                   notch=TRUE)+ ylab(k)
+    b = ggplot(feat_eda, aes_string(y=k)) + 
+    geom_boxplot(outlier.color='red',
+                 outlier.shape =1, 
+                 outlier.size=3,
+                 notch=TRUE)+ ylab(k)
     B = c(B, list(b))
   }
   return(list(plots=B, num=length(vars)))
@@ -356,9 +408,12 @@ do.call(grid.arrange, c(BPlots$plots[15:19], ncol=3, nrow=3))
 bpf2 = function(b2) {
   B = list()
   for (k in colNames1){
-    b = ggplot(feat_eda, aes_string(x=feat_eda$city, y=k))+ geom_boxplot(outlier.color='red',
-                                                        outlier.shape =1, outlier.size=3,
-                                                        notch=TRUE)+ ylab(k)
+    b = ggplot(feat_eda, aes_string(x=feat_eda$city, y=k)) + 
+    geom_boxplot(outlier.color='red',
+                 outlier.shape =1, 
+                 outlier.size=3,
+                 notch=TRUE) + 
+    ylab(k)
     B = c(B, list(b))
   }
   return(list(plots=B, num=length(vars)))
@@ -378,7 +433,10 @@ do.call(grid.arrange, c(BPlots2$plots[15:19], ncol=3, nrow=3))
 histf = function(h) {
   H = list()
   for (k in colNames1){
-    h = ggplot(feat_eda, aes_string(x = k)) + geom_histogram(alpha = .5,fill = "blue", bins=20)
+    h = ggplot(feat_eda, aes_string(x = k)) + 
+    geom_histogram(alpha = .5,
+                   fill = "blue", 
+                   bins=20)
     H = c(H, list(h))
   }
   return(list(plots=H, num=length(vars)))
@@ -396,7 +454,12 @@ do.call(grid.arrange, c(HPlots$plots[15:19], ncol=3, nrow=3))
 histf2 = function(h2) {
   H = list()
   for (k in colNames1){
-    h = ggplot(feat_eda, aes_string(x = k, color="city")) + geom_histogram(alpha = .5, position="identity", fill = "white", bins=20)
+    h = ggplot(feat_eda, aes_string(x = k, 
+                                    color="city")) + 
+    geom_histogram(alpha = .5, 
+                   position="identity", 
+                   ill = "white", 
+                   bins=20)
     H = c(H, list(h))
   }
   return(list(plots=H, num=length(vars)))
@@ -415,7 +478,9 @@ do.call(grid.arrange, c(HPlots2$plots[15:19], ncol=3, nrow=3))
 denf = function(d) {
   D = list()
   for (k in colNames1){
-    d = ggplot(feat_eda, aes_string(x = k)) + geom_density(alpha = .5,fill = "blue")
+    d = ggplot(feat_eda, aes_string(x = k)) + 
+    geom_density(alpha = .5,
+                 fill = "blue")
     D = c(D, list(d))
   }
   return(list(plots=D, num=length(vars)))
@@ -433,7 +498,10 @@ do.call(grid.arrange, c(DPlots$plots[15:19], ncol=3, nrow=3))
 denf2 = function(d2) {
   D = list()
   for (k in colNames1){
-    d = ggplot(feat_eda, aes_string(x = k, color="city")) + geom_density(alpha = .5, position = "identity", fill = "blue")
+    d = ggplot(feat_eda, aes_string(x = k, color="city")) + 
+    geom_density(alpha = .5, 
+                 osition = "identity", 
+                 fill = "blue")
     D = c(D, list(d))
   }
   return(list(plots=D, num=length(vars)))
@@ -451,7 +519,10 @@ do.call(grid.arrange, c(DPlots2$plots[15:19], ncol=3, nrow=3))
 qqf = function(q) {
   Q = list()
   for (k in colNames1){
-    q = ggplot(feat_eda, aes_string(sample = k)) + stat_qq() + stat_qq_line() + ylab(k)
+    q = ggplot(feat_eda, aes_string(sample = k)) + 
+    stat_qq() + 
+    stat_qq_line() + 
+    ylab(k)
     Q = c(Q, list(q))
   }
   return(list(plots=Q, num=length(vars)))
@@ -469,7 +540,11 @@ do.call(grid.arrange, c(QPlots$plots[15:19], ncol=3, nrow=3))
 qqf2 = function(q2) {
   Q = list()
   for (k in colNames1){
-    q = ggplot(feat_eda, aes_string(sample = k, color="city")) + stat_qq() + stat_qq_line() + ylab(k)
+    q = ggplot(feat_eda, aes_string(sample = k, 
+                                    color="city")) + 
+    stat_qq() + 
+    stat_qq_line() + 
+    ylab(k)
     Q = c(Q, list(q))
   }
   return(list(plots=Q, num=length(vars)))
@@ -543,7 +618,8 @@ write.table(new_variables, "rain_months.csv", row.names=FALSE)
 new_variables$station_avg_temp_c_K = new_variables$station_avg_temp_c+273.15
 new_variables$station_max_temp_c_K = new_variables$station_max_temp_c+273.15
 new_variables$station_min_temp_c_K = new_variables$station_min_temp_c+273.15
-new_variables$station_min_max_temp_rng_c_K = new_variables$station_max_temp_c_K - new_variables$station_min_temp_c_K
+new_variables$station_min_max_temp_rng_c_K = new_variables$station_max_temp_c_K - 
+                                              new_variables$station_min_temp_c_K
 
 #drop celsius reported variables
 new_variables$station_avg_temp_c = NULL
@@ -554,12 +630,15 @@ new_variables$station_min_temp_c = NULL
 new_variables$comb_temp = (new_variables$reanalysis_air_temp_k+new_variables$reanalysis_avg_temp_k+
                                new_variables$station_avg_temp_c_K)/3
 #new min and max and diurnal temp variables
-new_variables$comb_min = (new_variables$reanalysis_min_air_temp_k+new_variables$station_min_temp_c_K)/2
-new_variables$comb_max = (new_variables$reanalysis_max_air_temp_k+new_variables$station_max_temp_c_K)/2
-new_variables$comb_diur = (new_variables$reanalysis_tdtr_k+new_variables$station_diur_temp_rng_c)/2
+new_variables$comb_min = 
+    (new_variables$reanalysis_min_air_temp_k+new_variables$station_min_temp_c_K)/2
+new_variables$comb_max = 
+    (new_variables$reanalysis_max_air_temp_k+new_variables$station_max_temp_c_K)/2
+new_variables$comb_diur = 
+    (new_variables$reanalysis_tdtr_k+new_variables$station_diur_temp_rng_c)/2
 
 # new variables for highly correlated ndvi variables
-new_variables$ndvi_total = (new_variables$ndvi_ne+new_variables$ndvi_nw+
+new_variables$ndvi_total = (new_variables$ndvi_ne+new_variables$ndvi_nw +
                               new_variables$ndvi_se+new_variables$ndvi_sw)/4
 new_variables$ndvi_north = (new_variables$ndvi_ne+new_variables$ndvi_nw)/2
 new_variables$ndvi_south = (new_variables$ndvi_se+new_variables$ndvi_sw)/2
@@ -572,7 +651,7 @@ str(new_variables)
 
 num_vars = c(9:24, 57:69)
 #get diff for sj
-sj_data = new_variables[new_variables$city=="sj",num_vars]
+sj_data = new_variables[new_variables$city=="sj", num_vars]
 
 var_diff_sj_out = sj_data[-1,] - sj_data[-nrow(sj_data),]
 head(var_diff_sj_out)
@@ -582,13 +661,13 @@ var_diff_sj_out = rbind(add_sj_diff,var_diff_sj_out)
 head(var_diff_sj_out)
 
 #get diff for iq---------------
-iq_data = new_variables[new_variables$city=="iq",num_vars]
+iq_data = new_variables[new_variables$city=="iq", num_vars]
 
 var_diff_iq_out = iq_data[-1,] - iq_data[-nrow(iq_data),]
 add_iq_diff = rep(0,length(iq_data))
 
 var_diff_iq_out = rbind(add_iq_diff,var_diff_iq_out)
-head(var_diff_iq_out)
+#head(var_diff_iq_out)
 
 #combine sj and iq data frames
 var_diff_both = rbind(var_diff_sj_out, var_diff_iq_out)
@@ -596,33 +675,53 @@ str(var_diff_both)
 tail(var_diff_both)
 
 #rename columns to specify they are the differnce 
-colnames(var_diff_both) = paste(colnames(var_diff_both), "diff", sep="_")
+colnames(var_diff_both) = paste(colnames(var_diff_both), 
+                                "diff", 
+                                sep="_")
 head(var_diff_both)
 
 #create variables that show average over 4 weeks------------------------
 library(zoo)
 
-var_av_sj_1 = data.frame(rollsumr(sj_data[], k=4, fill=NA)/4)
-var_av_sj_2 = data.frame(rollsumr(sj_data[1:3,], k=3, fill=NA)/3)
-var_av_sj_3 = data.frame(rollsumr(sj_data[1:2,], k=2, fill=NA)/2)
+var_av_sj_1 = data.frame(rollsumr(sj_data[], 
+                                  k=4, 
+                                  fill=NA)/4)
+var_av_sj_2 = data.frame(rollsumr(sj_data[1:3,], 
+                                  k=3, 
+                                  fill=NA)/3)
+var_av_sj_3 = data.frame(rollsumr(sj_data[1:2,], 
+                                  k=2, 
+                                  fill=NA)/2)
 var_av_sj_4 = var_av_sj_1[4:nrow(var_av_sj_1),]
 
-var_av_sj_out = rbind(sj_data[1,], var_av_sj_3[2,], var_av_sj_2[3,], var_av_sj_1[4:nrow(var_av_sj_1),])
+var_av_sj_out = rbind(sj_data[1,], 
+                      var_av_sj_3[2,], 
+                      var_av_sj_2[3,], 
+                      var_av_sj_1[4:nrow(var_av_sj_1),])
 
-str(var_av_sj_out)
-head(var_av_sj_out)
+#str(var_av_sj_out)
+#head(var_av_sj_out)
 
 
 #repeat with iq data set
-var_av_iq_1 = data.frame(rollsumr(iq_data, k=4, fill=NA)/4)
-var_av_iq_2 = data.frame(rollsumr(iq_data[1:3,], k=3, fill=NA)/3)
-var_av_iq_3 = data.frame(rollsumr(iq_data[1:2,], k=2, fill=NA)/2)
+var_av_iq_1 = data.frame(rollsumr(iq_data, 
+                                  k=4, 
+                                  fill=NA)/4)
+var_av_iq_2 = data.frame(rollsumr(iq_data[1:3,], 
+                                  k=3, 
+                                  fill=NA)/3)
+var_av_iq_3 = data.frame(rollsumr(iq_data[1:2,], 
+                                  k=2, 
+                                  fill=NA)/2)
 var_av_iq_4 = var_av_iq_1[4:nrow(var_av_iq_1),]
 
-var_av_iq_out = rbind(iq_data[1,], var_av_iq_3[2,], var_av_iq_2[3,], var_av_iq_1[4:nrow(var_av_iq_1),])
+var_av_iq_out = rbind(iq_data[1,], 
+                      var_av_iq_3[2,], 
+                      var_av_iq_2[3,], 
+                      var_av_iq_1[4:nrow(var_av_iq_1),])
 
-str(var_av_iq_out)
-tail(var_av_iq_out)
+#str(var_av_iq_out)
+#tail(var_av_iq_out)
 
 
 #combine sj and iq data frames
@@ -631,29 +730,48 @@ str(var_av_both)
 tail(var_av_both)
 
 #rename columns to specify they are the differnce 
-colnames(var_av_both) = paste(colnames(var_av_both), "av", sep="_")
+colnames(var_av_both) = paste(colnames(var_av_both), 
+                              "av", 
+                              sep="_")
 head(var_av_both)
 tail(var_av_both)
 
 #create variables that show slope over 4 weeks------------------------
 #sj data
-var_sl_sj_1 = apply(sj_data, 2, function(x) diff(x, lag=3)/4)
-var_sl_sj_2 = apply(sj_data[1:3,],2, function(x) diff(x, lag=2)/3)
-var_sl_sj_3 = apply(sj_data[1:2,], 2, function(x) diff(x, lag=1)/2)
+var_sl_sj_1 = apply(sj_data, 
+                    2, 
+                    function(x) diff(x, lag=3)/4)
+var_sl_sj_2 = apply(sj_data[1:3,],
+                    2, 
+                    function(x) diff(x, lag=2)/3)
+var_sl_sj_3 = apply(sj_data[1:2,], 
+                    2, 
+                    function(x) diff(x, lag=1)/2)
 
 var_sl_sj_z = rep(0,length(sj_data))  #put zero as baseline for row 1
-var_sl_sj_out = rbind(var_sl_sj_z, var_sl_sj_3, var_sl_sj_2, var_sl_sj_1)
-head(var_sl_sj_out)
+var_sl_sj_out = rbind(var_sl_sj_z, 
+                      var_sl_sj_3, 
+                      var_sl_sj_2, 
+                      var_sl_sj_1)
+#head(var_sl_sj_out)
 
 #iq data
-var_sl_iq_1 = apply(iq_data, 2, function(x) diff(x, lag=3)/4)
-var_sl_iq_2 = apply(iq_data[1:3,],2, function(x) diff(x, lag=2)/3)
-var_sl_iq_3 = apply(iq_data[1:2,], 2, function(x) diff(x, lag=1)/2)
+var_sl_iq_1 = apply(iq_data, 
+                    2, 
+                    function(x) diff(x, lag=3)/4)
+var_sl_iq_2 = apply(iq_data[1:3,],
+                    2, 
+                    function(x) diff(x, lag=2)/3)
+var_sl_iq_3 = apply(iq_data[1:2,], 
+                    2, 
+                    unction(x) diff(x, lag=1)/2)
 
 var_sl_iq_z = rep(0,length(iq_data)) #put zero as baseline for row 1
-var_sl_iq_out = rbind(var_sl_iq_z, var_sl_iq_3, var_sl_iq_2, var_sl_iq_1)
-head(var_sl_iq_out)
-tail(var_sl_iq_out)
+var_sl_iq_out = rbind(var_sl_iq_z, 
+                      var_sl_iq_3, 
+                      var_sl_iq_2, var_sl_iq_1)
+#head(var_sl_iq_out)
+#tail(var_sl_iq_out)
 
 #combine slope data for sj and iq
 var_sl_both = rbind(var_sl_sj_out, var_sl_iq_out)
@@ -663,14 +781,19 @@ write.csv(var_sl_both, file="test_iq.csv", row.names=FALSE)
 str(var_sl_both)
 
 #rename columsn to specify they are slope data
-colnames(var_sl_both) = paste(colnames(var_sl_both), "sl", sep="_")
+colnames(var_sl_both) = paste(colnames(var_sl_both), 
+                              "sl", 
+                              sep="_")
 head(var_sl_both)
 
 #bind new variables to main dataframe
 sj_variables = new_variables[new_variables$city=="sj",]
 iq_variables = new_variables[new_variables$city=="iq",]
 sj_iq_variables = rbind(sj_variables, iq_variables)
-new_variables2 = cbind(sj_iq_variables, var_diff_both, var_av_both, var_sl_both)
+new_variables2 = cbind(sj_iq_variables, 
+                       var_diff_both, 
+                       var_av_both, 
+                       var_sl_both)
 str(new_variables2)
 
 write.csv(new_variables2, file="new_variables2.csv", row.names=FALSE)
@@ -733,9 +856,12 @@ write.csv(cor_mat_all, "cor_matrix_all.csv")
 bpf2 = function(b2) {
   B = list()
   for (k in colNames6){
-    b = ggplot(eda2, aes_string(x=eda2$city, y=k))+ 
-      geom_boxplot(outlier.color='red', outlier.shape =1, outlier.size=3, 
-                   notch=TRUE)+ ylab(k)
+    b = ggplot(eda2, aes_string(x=eda2$city, y=k)) + 
+    geom_boxplot(outlier.color='red', 
+                 outlier.shape =1, 
+                 outlier.size=3, 
+                 notch=TRUE)+ 
+    ylab(k)
     B = c(B, list(b))
   }
   return(list(plots=B, num=length(vars)))
@@ -762,7 +888,10 @@ do.call(grid.arrange, c(BPlots2$plots[109:116], ncol=3, nrow=3))
 qqf2 = function(q2) {
   Q = list()
   for (k in colNames6){
-    q = ggplot(eda2, aes_string(sample = k, color="city")) + stat_qq() + stat_qq_line() + ylab(k)
+    q = ggplot(eda2, aes_string(sample = k, color="city")) + 
+    stat_qq() + 
+    stat_qq_line() + 
+    ylab(k)
     Q = c(Q, list(q))
   }
   return(list(plots=Q, num=length(vars)))
