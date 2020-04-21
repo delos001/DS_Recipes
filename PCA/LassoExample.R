@@ -6,6 +6,8 @@
 #   hence will give improved prediction accuracy when its increase in 
 #   bias is less than its decrease in variance.
 
+# StatsLearning Lect10 R modelselection D 111213
+
 library(glmnet)
 
 x=model.matrix(Salary~., Hitters)[,-1]
