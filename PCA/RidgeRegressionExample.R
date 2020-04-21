@@ -1,5 +1,6 @@
 
-
+#---------------------------------------------------------------------------------
+# EXAMPLE 1
 # glmet package is needed to perform ridge regression
 # StatsLearning Lect10 R modelselection D 111213
 # Ridge regression, relative to least squares regression is 
@@ -45,3 +46,42 @@ sqrt(sum(coef(ridge.mod)[-1,50]^2))
 
 predict(ridge.mod, s=50, type="coefficients")[1:20,]
 
+
+
+#-----------------------------------------------------------------------------------------
+# EXAMPLE 2
+set.seed(1)
+train=sample(1:nrow(x), nrow(x)/2)
+test=(-train)
+y.test=y[test]
+
+ridge.mod=glmnet(x[train,], 
+                 y[train], 
+                 alpha=0,   # the alpha of zero tell R to do ridge regression instead of lasso
+                 lambda=grid, 
+                 thresh=1e-12)   # thresh is a convergence threshold
+
+
+
+
+ridge.pred=predict(ridge.mod, 
+                   s=4,     # s=4 is the number of lambda values
+                   newx=x[test,])
+
+mean((ridge.pred-y.test)^2)
+
+# predicts the values with a very high lambda (s=10^10). 
+# This is like fitting a model with just an intercept. 
+# So we are testing whether the model above is better or 
+#   worse than a model with no variables.  
+#   (this is important to compare to see if you model is any good)
+ridge.pred=predict(ridge.mod, s=1e10, newx=x[test,])
+
+mean((ridge.pred-y.test)^2)
+
+
+ridge.pred=predict(ridge.mod, s=0, newx=x[test,], exact=T)
+
+
+
+mean((ridge.pred-y.test)^2)
