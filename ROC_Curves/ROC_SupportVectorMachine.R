@@ -2,9 +2,13 @@
 
 
 library(ROCR)
+
+# We first write a short function to plot an ROC curve given a vector 
+# containing a numerical score for each observation, pred, and a vector 
+# containing the class label for each observation, truth
 rocplots=function(pred, truth, ...){
   predob=prediction(pred, truth)
-  perf=performance(predob, "tpr", "fpr")
+  perf=performance(predob, "tpr", "fpr")  # true positive rate, false positive rate
   plot(perf, ...)
 }
 
