@@ -26,7 +26,8 @@ dim(bs(age, knots = c(25, 40, 60)))
 #     these degrees of freedom are used up by an intercept, plus 6 basis functions.
 
 # this gives the same results as line above but since
-# gives the attribute of the bs function using 6 df and shows where R has assigned the knots corresponding to 25th, 50th, and 75th percentile: 
+# gives the attribute of the bs function using 6 df and shows where R has 
+#     assigned the knots corresponding to 25th, 50th, and 75th percentile: 
 dim(bs(age, df=6))
 attr(bs(age, df=6), "knots")
 # output:
