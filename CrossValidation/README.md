@@ -15,4 +15,12 @@ We use CV as follows:
 Divide data into K folds; hold-out one part and fit using the remaining data 
 (compute error rate on hold-out data); repeat K times.
 CV Error Rate: average over the K errors we have computed
+
+
+Leave One Out Cross Validation Drawbacks:
+drawbacks: 
+(1.) the estimate of the test error rate can be highly variable depending on 
+      which observations are included in the training and validation sets. 
+(2.) the validation set error rate may tend to overestimate the test error 
+      rate for the model fit on the entire data set.
 ```
