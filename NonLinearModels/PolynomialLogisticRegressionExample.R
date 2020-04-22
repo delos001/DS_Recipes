@@ -3,10 +3,12 @@
 #     to binomial response of 1 and 0 respectively
 # we make predictions using predict function
 # # since this logistic, the default type="link" in glm. 
-fit=glm(I(wage>250)~poly(age,4), data=Wage, family=binomial)
-preds=predict(fit, newdata=list(age=age.grid), se=TRUE)
-
-
+fit=glm(I(wage>250)~poly(age,4), 
+        data=Wage, 
+        family=binomial)
+preds=predict(fit, 
+              newdata=list(age=age.grid), 
+              se=TRUE)
 
 
 # so pfit is created to equal the formula above for the preds$fit   
@@ -17,7 +19,8 @@ preds=predict(fit, newdata=list(age=age.grid), se=TRUE)
 #         second formula above. 
 
 pfit = exp(preds$fit)/(1+exp(preds$fit))
-se.bands.logit = cbind(preds$fit + 2*preds$se.fit, preds$fit - 2*preds$se.fit)
+se.bands.logit = cbind(preds$fit + 2*preds$se.fit, 
+                       preds$fit - 2*preds$se.fit)
 se.bands = exp(se.bands.logit)/(1+exp(se.bands.logit))
 
 
@@ -29,8 +32,13 @@ se.bands = exp(se.bands.logit)/(1+exp(se.bands.logit))
 #           in yellow below) to appear at top of the graph).  
 #       The grey blocks at the top are people (and corresponding age) that make >250
 # The pch"|" is the pipe which tells what symbol to apply to the blocks.
-plot(age,I(wage>250), xlim=agelims, type="n", ylim=c(0, 0.2))
-points(jitter(age), I((wage>250)/5), cex=0.5, pch="|", col="darkgrey")
+plot(age,I(wage>250), xlim=agelims, 
+     type="n", 
+     ylim=c(0, 0.2))
+points(jitter(age), I((wage>250)/5), 
+       cex=0.5, 
+       pch="|", 
+       col="darkgrey")
 
 
 lines(age.grid, pfit, lwd=2, col="blue")
