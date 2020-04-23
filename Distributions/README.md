@@ -1,5 +1,4 @@
-## Notes
-
+## General Information
 
 - CONTINUOUS DISTRIBUTIONS: probabilities calculated by AUC
   + Exponential
