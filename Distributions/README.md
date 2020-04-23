@@ -11,4 +11,3 @@
   + Poisson
   
   
-  ![GitHub Logo](/images/logo.png)
