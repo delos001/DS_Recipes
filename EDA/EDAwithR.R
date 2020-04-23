@@ -54,6 +54,17 @@ round(basicStats(charity[,11:21])[c("Minimum",
       2)
 
 
+# EXAMPLE 2
+require(fBasics)
+cols<-c(2:7,9:10)
+
+round(basicStats(mydata[,cols])[c('Minimum',
+                                  '1. Qu',
+                                  'Median',
+                                  'Mean',
+                                  '3. Qu',
+                                  'Maximum'),],
+      3)
 #-------------------------------------------------------------------
 # VARIABLE RELATIONSHIPS
 
