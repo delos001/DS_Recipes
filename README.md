@@ -4,6 +4,7 @@
 |---|---|
 |markdown cheatsheet|	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet|
 |generate tables|	https://www.tablesgenerator.com/markdown_tables|
+|githubguide|https://guides.github.com/features/mastering-markdown/|
 
 ---
 ## GitHub Repositories of Interest
