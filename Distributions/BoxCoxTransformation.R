@@ -23,7 +23,12 @@ lam <-bc$x[which.max(bc$y)]
 
 BClam <-lam
 
-truehist(BoxCox(x,lam), main="True Histograph of Increase in Debt (Box-Cox Transform)", xlab="Dollar Value of Increase in Debt (in MM, Box-Cox)", ylab="Frequency of Occurrences")
+truehist(BoxCox(x,lam), 
+         main="True Histograph of Increase in Debt (Box-Cox Transform)", 
+         xlab="Dollar Value of Increase in Debt (in MM, Box-Cox)", 
+         ylab="Frequency of Occurrences")
 
-BoxCoxPlot<-ts.plot(BoxCox(x,lam), main="Total Debt Increase by Quarter (in Millions, Box-Cox Transform)", 
-        xlab="Quarter in terms of Time Series", ylab="Change in Debt (Box-Cox)", col="blue")
+BoxCoxPlot <- ts.plot(BoxCox(x,lam), 
+                      main="Total Debt Increase by Quarter (in Millions, Box-Cox Transform)", 
+                      xlab="Quarter in terms of Time Series", 
+                      ylab="Change in Debt (Box-Cox)", col="blue")
