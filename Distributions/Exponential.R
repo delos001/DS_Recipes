@@ -22,5 +22,9 @@ pexp(2,rate=1.20, lower.tail = FALSE)
 #----------------------------------------------------------
 # PLOTTING EXAMPLE
 x <- seq(0,5,0.1)
-plot(x,dexp(x,rate = 1), type = "l", col = "red", ylab = "density", main = 
-       "Exponential Density Function Rate = 1", lwd = 2)
+plot(x,dexp(x,rate = 1), 
+     type = "l", 
+     col = "red", 
+     ylab = "density", 
+     main = "Exponential Density Function Rate = 1", 
+     lwd = 2)
