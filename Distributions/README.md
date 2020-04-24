@@ -23,6 +23,12 @@
     + describes rare events
     + requires independent discrete occurrences over time
     + expected number of outcomes is held constant
-  
-  
+
+---
+
+- d**: gives values on density function,
+- p**: gives probability, cummulative distribution function
+- q**: gives quantiles
+- r**: gives n numer of random observations
+
 ![R Distribution Functions](https://github.com/delos001/DS_Models/blob/master/zImages/Distributions_in_R.png)
