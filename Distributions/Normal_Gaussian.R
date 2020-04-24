@@ -128,3 +128,24 @@ qnorm(0.9); qnorm(0.95)
 #    (manually provide the alpha for each end of a 0.05 alpha, 
 #    divided by 2 since its two tail)    
 qnorm(c(0.025,0.975))  # output: -1.959964, 1.959964
+
+
+
+#----------------------------------------------------------
+# QNORM: 
+# example shows qnorm gives typical inputs to pnorm and vice versa
+qnorm(c(0.25, 0.5, 0.75),   # out: -0.6744898, 0.000000, 0.6744898
+      mean=0, 
+      sd=1, 
+      lower.tail=TRUE)
+
+pnorm(c(-0.6744898, 0.000000, 0.6744898),0,1,  # out: 0.25, 0.5, 0.75
+       lower.tail=TRUE)
+
+
+#----------------------------------------------------------
+# RNORM: generate random observations
+# simulate 100 random observations mean=3, sd=2
+rnorm(100,3,2)
+
+prnorm(c(-0.6744898, 0.000000, 0.6744898),0,1,lower.tail=FALSE)
