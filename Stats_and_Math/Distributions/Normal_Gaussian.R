@@ -130,9 +130,7 @@ qnorm(0.9); qnorm(0.95)
 qnorm(c(0.025,0.975))  # output: -1.959964, 1.959964
 
 
-
-#----------------------------------------------------------
-# QNORM: 
+# QNORM: -----------------------------
 # example shows qnorm gives typical inputs to pnorm and vice versa
 qnorm(c(0.25, 0.5, 0.75),   # out: -0.6744898, 0.000000, 0.6744898
       mean=0, 
@@ -141,6 +139,21 @@ qnorm(c(0.25, 0.5, 0.75),   # out: -0.6744898, 0.000000, 0.6744898
 
 pnorm(c(-0.6744898, 0.000000, 0.6744898),0,1,  # out: 0.25, 0.5, 0.75
        lower.tail=TRUE)
+
+
+# QNORM:
+# find z-score given a probability
+# We already know the z-score is 0.6744898.
+qnorm(p, 0, 1, lower.tail = TRUE)    # gives the zscore
+
+# gives filled in plot up to 75% (specified p value) under standard normal density
+cord.x <- c(-3, seq(-3, 0.67, 0.01), 0.67)
+cord.y <- c(0, dnorm(seq(-3, 0.67, 0.01),0,1), 0)
+curve(dnorm(x,0,1),
+      xlim=c(-3,3),
+      main="Standard Normal Density", 
+      ylab = "density")
+polygon(cord.x,cord.y,col="skyblue")
 
 
 #----------------------------------------------------------
