@@ -32,11 +32,16 @@ t.test(result$weight~result$Diet,
 
 
 #----------------------------------------------------------
-# ANOTHER EXAMPLE
+#----------------------------------------------------------
+# SINGLE SAMPLE T TEST
+#----------------------------------------------------------
+#----------------------------------------------------------
+#----------------------------------------------------------
+# EXAMPLE
 # groups vector S for 'baths' where number of bathrooms = 1
 s1 <- S[baths == "1"]
 s15 <- S[baths == "1.5"]
 t.test(s15,s1,
        alternative = c("two.sided"),
        mu = 0,
-       paired=FALSE)
+       paired = FALSE)
