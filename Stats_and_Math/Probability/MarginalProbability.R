@@ -1,4 +1,5 @@
-
+# Probabilities from a table
+# Demonstration of calculations in Figure 4.7 of Business Statistics by Black.
 
 control <- factor(hospital$Control, 
                   labels = c("G_NFed","NG_NP",
