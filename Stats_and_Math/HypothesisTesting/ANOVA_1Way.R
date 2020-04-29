@@ -29,12 +29,20 @@ summary(aov.region)
 res <- aov(yield ~ operator, data = machine)
 summary(res)
 
-f.upper <- qf(0.95, 3, 20, lower.tail = TRUE)
-cord.x <- c(f.upper, seq(f.upper, 15, 0.01), 6)
+f.upper <- qf(0.95, 3, 20, 
+              lower.tail = TRUE)
+cord.x <- c(f.upper, 
+            seq(f.upper, 15, 0.01), 6)
 cord.y <- c(0, df(seq(f.upper, 15, 0.01), 3, 20), 0)
-curve(df(x,3,20),xlim=c(0,6),main=" F Density", ylab = "density")
-polygon(cord.x,cord.y,col="skyblue")
-legend("right", legend = c("critical region >= 3.10"))
+curve(df(x,3,20),
+      xlim=c(0,6),
+      main=" F Density", 
+      ylab = "density")
+polygon(cord.x,
+        cord.y,
+        col="skyblue")
+legend("right", 
+       legend = c("critical region >= 3.10"))
 
 
 sigma <- sum(resid(res)^2)/(20)
