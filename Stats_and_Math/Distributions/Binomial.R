@@ -59,6 +59,13 @@ sum(dbinom(c(0,1,2,3,4,5),10,0.5))  # OUT: 0.6230469
 sum(dbinom(c(6,7,8,9,10),10,0.5))  # OUT: 0.3769531  
 
 
+# The binomial probability reflects sampling with replacement
+# pull sample of size 10 from p (above) and get probability of 
+# getting 5 psychiatric hospitals
+dbinom(5,10,p)
+
+
+
 
 #----------------------------------------------------------
 # QUANTILE DISTRIBUTION: quantiles are a range of probabilities
