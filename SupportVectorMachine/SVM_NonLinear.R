@@ -4,7 +4,7 @@
 #   IMPORTANT: view this video as it has better code to 
 #   get better graphs than what are in the standard svm library
 
-
+# NOTE: Another example from Ch9, exercise 4 of ISLR text
 library(e1071)
 
 set.seed(1)
