@@ -7,7 +7,8 @@
 set.seed(1)
 
 # create a 2 column matrix with 20 randomly generated numbers in each column
-x = matrix(rnorm(20*2), ncol = 2)
+x = matrix(rnorm(20*2), 
+	   ncol = 2)
 
 # create vector containing 10 values of 1 and 10 values of -1 
 # (for 20 total values in the vector)
@@ -28,7 +29,11 @@ library(e1071)
 #     large cost value gives narrow margins and few support vectors on margin or violating margin
 #     scale = false (tells svm not to scale each feature to have mean zero or sd of 1  
 #         (depending on application, you may want scale=TRUE)
-svmfit=svm(y~., data=dat, kernel="linear", cost=10, scale=FALSE)
+svmfit=svm(y~., 
+	   data=dat, 
+	   kernel="linear", 
+	   cost=10, 
+	   cale=FALSE)
 
 # plot support vector classifier with separating data points using svm function
 # region of feature space that will be assigned to the −1 class is shown in light blue, 
@@ -65,8 +70,11 @@ set.seed(1)
 
 # tune performs 10fold cross validation of svm (in this case, based on cost values): 
 #   y is dep var, using dat dataframe, with linear kernel, and a range of cost values.
-tune.out=tune(svm, y~., data=dat, kernel="linear", 
-	ranges=list(cost=c(0.001, 0.01, 1, 5, 10, 100)))
+tune.out=tune(svm, 
+	      y~., 
+	      data=dat, 
+	      kernel="linear", 
+	ranges=list(cost = c(0.001, 0.01, 1, 5, 10, 100)))
   
 # gives error for each cost value 
 #   (and also gives the "best" value which is cost=0.1, in this example)
