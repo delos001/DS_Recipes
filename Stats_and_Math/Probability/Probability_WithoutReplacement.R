@@ -22,10 +22,12 @@ combn(5,2)
 #   pick the drink divided by total number of combinations
 x <- c("a","b","c","d","e")  # choices are labeled a-e
 dim(combn(x,2))[2]  # dimension of 10  (label the various categories)
-total.number.combinations <- (dim(combn(x,2))[2])^3  # cubed for three people gives total possible outcomes for this study
+# cubed for three people gives total possible outcomes for this study
+total.number.combinations <- (dim(combn(x,2))[2])^3  
 
 
 y <- c("b","c","d","e")  # remove the preferred drink
 dim(combn(y,2))[2]  # dimension of 10 (allows you to label the various categories)
-reduced.number.combinations <- (dim(combn(y,2))[2])^3  # calculate the number of combinations for a single person and raise to third power for three people
+# calculate num of combinations for 1 person, raise to 3rd power for 3 people
+reduced.number.combinations <- (dim(combn(y,2))[2])^3  
 reduced.number.combinations/total.number.combinations  # answer
