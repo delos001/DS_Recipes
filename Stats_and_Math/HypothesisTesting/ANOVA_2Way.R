@@ -20,7 +20,8 @@ schools <- read.csv("schools.csv",sep=",")
 
 result <- aov(Y~region+year+region*year,schools)
 summary(result)
-# comparison expenditures across time, from region to region to region (expenditures by region, year, and year/region together)
+# comparison expenditures across time, from region to region to region 
+#             (expenditures by region, year, and year/region together)
 #              Df Sum Sq Mean Sq F value   Pr(>F)    
 # region        3 188843   62948  23.263 2.62e-12 ***
 # year          1   2006    2006   0.741    0.391    
@@ -42,8 +43,12 @@ r <- residuals(result)
 fitt <- fitted(result)
 
 par(mfrow = c(1,2))
-hist(r, col = "red", main = "Histogram of Residuals", xlab = "Residual")
-boxplot(r, col = "red", main = "Boxplot Residuals", ylab = "Residual")
+hist(r, col = "red", 
+     main = "Histogram of Residuals", xlab = "Residual")
+boxplot(r, 
+        col = "red", 
+        main = "Boxplot Residuals", 
+        ylab = "Residual")
 par(mfrow = c(1,1))
 
 skewness(r)   # for normal dist should be 0
@@ -53,8 +58,17 @@ kurtosis(r)   # for normal dist should be 3
 # see bivariate plot for plotting multiple variables
 # after creating bivariate plot,  you can create 2x2 chi squared table and 
 # calculate independence
-plot(schools$X, schools$Y,main = "Expenditures versus Personal Income", 
-     xlab = "Per capita monthly personal income", ylab = "Per capita annual 
-     expenditure on public education", col = "red", pch = 16)
-abline(v = median(schools$X), col = "green", lty = 2, lwd = 2)
-abline(h = median(schools$Y), col = "green", lty = 2, lwd = 2)
+plot(schools$X, schools$Y,
+     main = "Expenditures versus Personal Income", 
+     xlab = "Per capita monthly personal income", 
+     ylab = "Per capita annual expenditure on public education", 
+     col = "red", 
+     pch = 16)
+abline(v = median(schools$X), 
+       col = "green", 
+       lty = 2, 
+       lwd = 2)
+abline(h = median(schools$Y), 
+       col = "green", 
+       lty = 2, 
+       lwd = 2)
