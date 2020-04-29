@@ -1,4 +1,6 @@
 # A type of hierarchal clustering linkage
+# get average (not min or max distances)
+
 
 plot(hclust(as.dist(illustration.data),
             'complete'), col = 4)
