@@ -23,3 +23,10 @@ rhyper(nn, m, n, k)
 # n=16 total black balls are present (found by subtracting white balls from total balls)
 # k=5 is how many balls will be drawn from the sample
 dhyper(3,8,16,5)
+
+
+# EXAMPLE 2
+# The hypergeometric probability reflects sampling without replacement
+# specify number of psych hospitals wanted: of 32 there, 168 are medical, 
+#   with sample size of 10
+dhyper(5,32,168,10)
