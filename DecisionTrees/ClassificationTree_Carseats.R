@@ -35,7 +35,11 @@ plot(tree.carseats)   # creates the tree outline
 # predictors (rather than a letter for each cateogry).
 # cex gives the font size, pos tells position (top, left, right, 
 # center, etc), offset moves the label on the tree
-text(tree.carseats, pretty=0, cex=0.6, pos=1, offset=0)
+text(tree.carseats, 
+     pretty=0, 
+     cex=0.6, 
+     pos=1, 
+     offset=0)
 
 tree.carseats
 
@@ -51,10 +55,14 @@ High.test=High[-train]
 
 
 # create tree to predict the high variable using the train subset
-tree.carseats=tree(High~.-Sales, Carseats, subset=train)
+tree.carseats=tree(High~.-Sales, 
+                   Carseats, 
+                   subset=train)
 # get predicted variables using the tree.carseats tree using the test observations.  
 # type="class" tells R to give the actual class prediction
-tree.pred=predict(tree.carseats, Carseats.test, type="class")
+tree.pred=predict(tree.carseats, 
+                  Carseats.test, 
+                  type="class")
 table(tree.pred, High.test)  # creates confusion: shows 71.5 correct predictions
 
 
@@ -65,7 +73,8 @@ set.seed(3)
 # cross validation to determine optimal level of tree complexity.  
 # FUN=prune.misclass in order to indicate that we want a classification 
 # error rate to guide the cross validation after pruning
-cv.carseats=cv.tree(tree.carseats, FUN=prune.misclass)
+cv.carseats=cv.tree(tree.carseats, 
+                    FUN=prune.misclass)
 names(cv.carseats)
 cv.carseats
 # OUTPUT Discussion:
@@ -77,9 +86,11 @@ cv.carseats
 
 par(mfrow=c(1,2))
 # plots error rate as function of size, type b gives connected dots
-plot(cv.carseats$size, cv.carseats$dev, type="b")
+plot(cv.carseats$size, cv.carseats$dev, 
+     type="b")
 # plots error rate as a function of k,
-plot(cv.carseats$k, cv.carseats$dev, type="b")
+plot(cv.carseats$k, cv.carseats$dev, 
+     type="b")
 par(mfrow=c(1,1))
 
 # prunes the tree to a nine-node tree
@@ -95,5 +106,7 @@ text(prune.carseats, pretty=0)  # adds the text.
 # creates confusion that shows 77% correct prediction classification
 # NOTE: you can change the "best" value to see if you get a better 
 # classificaiton rate
-tree.pred=predict(prune.carseats, Carseats.test, type="class")
+tree.pred=predict(prune.carseats, 
+                  Carseats.test, 
+                  type="class")
 table(tree.pred, High.test)
