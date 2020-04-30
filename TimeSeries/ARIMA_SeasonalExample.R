@@ -14,9 +14,14 @@ tsdisplay(diff(diff(log_flu_ts, 52)))
 # (no lines shoudl be above threshold which would be considered 
 # being random like white noise) box test to test whether residuals 
 # are random??
-flu_seas_fit = Arima(log_flu_ts, order=c(2,1,2), seasonal=c(0,1,1))
+flu_seas_fit = Arima(log_flu_ts, 
+                     order=c(2,1,2), 
+                     seasonal=c(0,1,1))
 tsdisplay(residuals(flu_seas_fit))
-Box.test(residuals(flu_seas_fit), lag=52, fitdf=4, type="Ljung")
+Box.test(residuals(flu_seas_fit), 
+         lag=52, 
+         fitdf=4, 
+         type="Ljung")
 
 plot(forecast(flu_seas_fit, h=104))  # plots the forecasted values 104 weeks ahead
 
@@ -25,9 +30,15 @@ plot(forecast(flu_seas_fit, h=104))  # plots the forecasted values 104 weeks ahe
 flu_seas_fit_auto = auto.arima(log_flu_ts)
 
 # turns off the shortcuts so R picks a better model (but takes more time to run)
-flu_seas_fit_auto2 = auto.arima(log_flu_ts, stepwise=FALSE, approximation = FALSE)
+flu_seas_fit_auto2 = auto.arima(log_flu_ts, 
+                                stepwise=FALSE, 
+                                approximation = FALSE)
 
 # auto.arima() with differencing specified to be d=0 and D=1, and 
 # allowing larger models than usual. 
-flu_seas_fit_auto3 = auto.arima(log_flu_ts, max.order=8, lambda=0, d=0, D=0,
-                                stepwise = FALSE, approximation=FALSE)
+flu_seas_fit_auto3 = auto.arima(log_flu_ts, 
+                                max.order=8, 
+                                lambda=0, 
+                                d=0, D=0,
+                                stepwise = FALSE, 
+                                approximation=FALSE)
