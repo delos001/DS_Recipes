@@ -1,4 +1,12 @@
 
+# Simple exponential smoothing   
+# (see chapter 7 of Forecasting Principles and Practice
+
+# Use this for non season and non-trend time series data
+# note: the "mydata" data set is seasonal so not appropriate 
+# for simple exponential smoothing therefore, this code is 
+# for demonstration purposes only
+
 
 
 mydata_flu= mydata$Influenza.Deaths
