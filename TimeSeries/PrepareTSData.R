@@ -1,4 +1,4 @@
-
+# Basic data prep for TS analysis using NCHS flu data
 
 mydata=read.csv(file.path("NCHSData52.csv"),
                 sep=",", 
