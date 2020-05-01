@@ -11,7 +11,7 @@
 # addition to seasonal variation across the year.
 
 
-
+# this is from the milk production example
 monthdays <- rep(c(31,28,31,30,31,30,31,31,30,31,30,31),14)
 monthdays[26 + (4*12)*(0:2)] <- 29
 
