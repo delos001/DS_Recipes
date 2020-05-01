@@ -14,8 +14,13 @@
 
 monthdays <- rep(c(31,28,31,30,31,30,31,31,30,31,30,31),14)
 monthdays[26 + (4*12)*(0:2)] <- 29
-par(mfrow=c(2,1))
-plot(milk, main="Monthly milk production per cow",
-  ylab="Pounds",xlab="Years")
-plot(milk/monthdays, main="Average milk production per cow per day", 
-  ylab="Pounds", xlab="Years")
+
+par(mfrow = c(2,1))
+plot(milk, 
+     main = "Monthly milk production per cow",
+     ylab = "Pounds",
+     xlab = "Years")
+plot(milk/monthdays, 
+     main = "Average milk production per cow per day", 
+     ylab = "Pounds", 
+     xlab = "Years")
