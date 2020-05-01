@@ -1,6 +1,18 @@
 
 
+#----------------------------------------------------------
+# BASIC EXAMPLE
+#----------------------------------------------------------
+# box cox transformation: BoxCox.lambda() function will chooses a lamda
+# Having chosen a transformation, we need to forecast the transformed data. 
+# then, we need to reverse the transformation (or back-transform) to obtain 
+# forecasts on the original scale. (see formula in one note)
+lambda <- BoxCox.lambda(elec) 
+plot(BoxCox(elec,l ambda))
 
+#----------------------------------------------------------
+# EXAMPLE 2
+#----------------------------------------------------------
 
 # https://www.isixsigma.com/tools-templates/normality/making-data-normal-using-box-cox-power-transformation/
 
