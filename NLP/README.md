@@ -1,7 +1,6 @@
 ## Notes
 
 
-```
 List of Terms / Acronyms
 • Cohort
 • Corpus and Case Studies
@@ -32,4 +31,4 @@ For example, the problems with getting good clusters typically come down to how 
 The RTV should not be overly large (and sparse), because that makes it hard for the documents to have sufficient “matches.”
 The RTV should not be too small, because the different things that documents would have in common need to be sufficiently represented.
 It’s a “Goldilocks problem.” The RTV has to be just right.
-```
+
