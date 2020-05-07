@@ -10,7 +10,7 @@ List of Terms / Acronyms
 • Hero Team
 • Reference Term Vector, or RTV
 
-** DSI: Data Source Item: 
+** DSI: Data Source Item: **
 - A DSI (Data Source Item) is a single thing that contributes to the corpus (collection of items that is being evaluated). It is not necessarily a single document - it can be as short and simple as a single Tweet. (More often, though, if a student wanted to contribute a DSI based on tweets, they would assemble a collection of tweets as their DSI.) A DSI can be a transcript of an audio or video presentation. It can be extracts from chat sessions or customer surveys or point-of-sale responses, etc. 
 
 Corpus and Case Studies:
