@@ -1,0 +1,36 @@
+
+
+
+#set train and test directories for desktop local C drive------------------------
+
+#local directory parent folder containing the training folders: type_1, type_2, type_3 and test files
+# sets the folder directory then reads all the files
+dir_loc = 'C:\\Users\\Jason\Desktop\\Cervix'
+
+#local directory parent folder containing the training folders: type_1, type_2, type_3
+tr1_dir_loc = 'C:\\Users\\Jason\Desktop\\Cervix\\train\\Type_1'
+tr2_dir_loc = 'C:\\Users\\Jason\Desktop\\Cervix\\train\\Type_2'
+tr3_dir_loc = 'C:\\Users\\Jason\Desktop\\Cervix\\train\\Type_3'
+
+#local directory parent folder containing the test files
+tst1_dir_loc = 'C:\\Users\\Jason\\Desktop\\Cervix\\test'
+
+
+#files for each training type (1,2,3)
+tr1_f_loc = [os.path.join(tr1_dir_loc, f) for f in os.listdir(tr1_dir_loc)]
+tr2_f_loc = [os.path.join(tr2_dir_loc, f) for f in os.listdir(tr2_dir_loc)]
+tr3_f_loc = [os.path.join(tr3_dir_loc, f) for f in os.listdir(tr3_dir_loc)]
+
+#test image directory
+tst1_f_loc = [os.path.join(tst1_dir_loc, f) for f in os.listdir(tst1_dir_loc)]
+
+
+#get path for all files in the local C: Type1 folder, then split to see file type and cervix type
+# puts all the files into a data frame
+#tr1_f_loc = [os.path.join(tr_t1, f) for f in os.listdir(tr_t1)]
+tr1_im_loc = pd.DataFrame({"imagepath": tr1_f_loc})
+tr1_im_loc["filetype"] = tr1_im_loc.apply(lambda row: row.imagepath.split(".")[-1], axis=1)
+tr1_im_loc["type"] = tr1_im_loc.apply(lambda row: row.imagepath.split("\\")[-2], axis=1)
+tr1_im_loc["name"] = tr1_im_loc.apply(lambda row: row.imagepath.split("\\")[7], axis=1)
+tr1_im_loc.head()
+
