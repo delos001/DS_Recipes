@@ -1,3 +1,12 @@
+## NLTK Downloader
+- Imports nltk
+- Opens window to specify which parts of nltk you want to dowload
+- https://www.nltk.org/data.html
+```
+import nltk
+nltk.download()
+```
+
 ## Notes
 ```
 List of Terms / Acronyms
