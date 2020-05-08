@@ -15,6 +15,8 @@ this will bring you to transient in-memory database
 - http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html#creating-a-new-sqlite-database
 
 ## Other
+```
 import pandas as pd
 import SQLite3
 import pandas.io.sql
+```
