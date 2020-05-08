@@ -94,13 +94,21 @@ plt.xlabel('x1')
 plt.ylabel('x2')
 plt.title('Perceptron Linear Classifier')
 plt.plot(0, 0, 'sr')
-plt.annotate('0', xy = (0,0), xytext = (.1, .1), arrowprops = dict(arrowstyle = '->'))
+plt.annotate('0', xy = (0,0), 
+             xytext = (.1, .1), 
+             arrowprops = dict(arrowstyle = '->'))
 plt.plot(0, 1, 'sr')
-plt.annotate('0', xy = (0,1), xytext = (.1, .9), arrowprops = dict(arrowstyle = '->'))
+plt.annotate('0', xy = (0,1), 
+             xytext = (.1, .9), 
+             arrowprops = dict(arrowstyle = '->'))
 plt.plot(1, 0, 'sr')
-plt.annotate('0', xy = (1,0), xytext = (.9, .1), arrowprops = dict(arrowstyle = '->'))
+plt.annotate('0', xy = (1,0), 
+             xytext = (.9, .1), 
+             arrowprops = dict(arrowstyle = '->'))
 plt.plot(1, 1, 'sb')
-plt.annotate('1', xy = (1,1), xytext = (.9, .9), arrowprops = dict(arrowstyle = '->'))
+plt.annotate('1', xy = (1,1), 
+             xytext = (.9, .9), 
+             arrowprops = dict(arrowstyle = '->'))
 line1, = plt.plot(xx, yy, 'm--')
 plt.axis([-0.2, 1.2, -0.2, 1.2])
 plt.legend([line1], ['TLU Linear Classifier'], loc = "center left")
