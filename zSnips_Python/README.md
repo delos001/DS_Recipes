@@ -46,6 +46,14 @@ if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, wit
 |Variable| Name that refers to a value|
 ---
 
+## Version Identification
+- Python:
+	- Command prompt, 'python --version'
+- Packages:
+	- Python environment, 'print('matplotlib: %s' % matplotlib.__version__)'
+	
+---
+
 ## PIP
 |Command|Description|
 |---|---|
