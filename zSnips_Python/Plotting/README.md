@@ -2,10 +2,14 @@
 - http://matplotlib.org/gallery.html
 ---
 
-needed to produce charts in numpy environment
+## Needed to produce charts in numpy environment
 ```
 import matplotlib.pyplot as plt
 %matplotlib inline
+```
+## Change default size of plots in Jupyter Notebook:
+```
+pyplot.rcParams['figure.figsize'] = [10, 10]
 ```
 ---
 
