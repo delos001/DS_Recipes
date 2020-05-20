@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 ```
 pyplot.rcParams['figure.figsize'] = [10, 10]
 pyplot.rcParams['figure.dpi'] = 100
+
+pyplot.gcf().set_size_inches(10, 10) # don't change gcf
 ```
 ---
 
