@@ -7,9 +7,10 @@
 import matplotlib.pyplot as plt
 %matplotlib inline
 ```
-## Change default size of plots in Jupyter Notebook:
+## Options to change default size of plots in Jupyter Notebook:
 ```
 pyplot.rcParams['figure.figsize'] = [10, 10]
+pyplot.rcParams['figure.dpi'] = 100
 ```
 ---
 
