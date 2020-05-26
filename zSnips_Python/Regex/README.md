@@ -8,7 +8,7 @@
 
 ```
 Character matches
-.       - Matches any Character Except New Line
+.       - Matches any character except new line (ex: .aslkd)
 \d      - Digit (0-9)
 \D      - Not a Digit (0-9) anything but a number
 \w      - Word Character (a-z, A-Z, 0-9, _): any letter
@@ -38,7 +38,7 @@ $       - match at the end of a string
 | = matches either/or. Example x|y = will match either x or y
 
 {3}     - Exact Number
-{3,4}   - Range of Numbers (Minimum, Maximum) expect 3-4 counts of digits, or "places"
+{1,3}   - Range of counts (Minimum, Maximum): expect 1-3 digits, or "places"
 {x}     - expect to see this amount of the preceding code.
 {x,y}   - expect to see this x-y amounts of the precedng code
 []      - range, or "variance"
@@ -62,5 +62,12 @@ White Space Charts:
 \e = escape
 \f = form feed
 \r = carriage return
+
+
+# example to show how 'r' tells python to treat as raw string
+print('\tTab')  # tab indents before printing 'Tab'
+print(r'\tTab') # tells python to treat as raw instead
+	Tab
+\tTab
 ```
 
