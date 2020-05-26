@@ -3,8 +3,8 @@
 ---
 
 #### From: 
-Corey Shafers github: [https://github.com/CoreyMSchafer/code_snippets/blob/master/Python-Regular-Expressions/snippets.txt]
-PythonProgramming: https://pythonprogramming.net/regular-expressions-regex-tutorial-python-3/
+- Corey Shafers github: [https://github.com/CoreyMSchafer/code_snippets/blob/master/Python-Regular-Expressions/snippets.txt]
+- PythonProgramming: https://pythonprogramming.net/regular-expressions-regex-tutorial-python-3/
 
 ```
 Character matches
