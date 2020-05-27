@@ -11,8 +11,8 @@ Character matches
 .       - Matches any character except new line (ex: .aslkd)
 \d      - Digit (0-9)
 \D      - Not a Digit (0-9) anything but a number
-\w      - Word Character (a-z, A-Z, 0-9, _): any letter
-\W      - Not a Word Character: anything but a letter
+\w      - Word Character (a-z, A-Z, 0-9, _): any letter, digit, underscore
+\W      - Not a Word Character: no upper/lower letters, digits, underscores
 \s      - Whitespace (space, tab, newline)
 \S      - Not Whitespace (space, tab, newline)
 
