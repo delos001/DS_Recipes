@@ -17,6 +17,13 @@ print("1+2-3*2=", 1+2-3*2)  result = 3
 print("(1+2-3)*2=",(1+2-3)*2)  result = 0
 ```
 
+```
+float vs non-float
+x = 10, y = 3
+x / y = 3
+x / float(y) = 3.333
+```
+
 |Operator|Description|
 |---|---|
 |<|less than|
