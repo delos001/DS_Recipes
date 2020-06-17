@@ -1,4 +1,9 @@
 ## Python Basics
+
+```
+String Methods
+https://docs.python.org/3.7/library/stdtypes.html#string-methods
+```
 |Syntax|Description|
 |---|---|
 |# text| descriptive comment|
