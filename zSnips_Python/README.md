@@ -79,6 +79,7 @@ if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, wit
 #### Operations In Notebook
 |Command|Description|
 |---|---|
+|!python --version|show the current python version|
 |os.getcwd()|Get the working directory. Note: must import os|
 |%reset|Clear all variables in Jupyter environment, https://stackoverflow.com/questions/22934204/how-to-clear-variables-in-ipython|
 |!pip list|show all installed packages|
