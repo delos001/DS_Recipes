@@ -3,8 +3,12 @@
 ```
 String Methods
 https://docs.python.org/3.7/library/stdtypes.html#string-methods
+
 Dictionaries
 https://docs.python.org/2/library/stdtypes.html#dict
+
+Numpy Tutorial:
+https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb#scrollTo=0JoA4lH6L9ip
 ```
 |Syntax|Description|
 |---|---|
