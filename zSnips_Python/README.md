@@ -75,6 +75,10 @@ if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, wit
 
 ## JUPYTER NOTEBOOK AND LAB
 
+Tips and Tricks:
+-https://towardsdatascience.com/bringing-the-best-out-of-jupyter-notebooks-for-data-science-f0871519ca29
+-https://www.kdnuggets.com/2020/01/optimize-jupyter-notebook.html
+
 #### Operations in Anaconda Prompt
 |Command|Description|
 |---|---|
