@@ -60,6 +60,7 @@ if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, wit
 ## Version Identification
 - Python:
 	- Command prompt, 'python --version'
+	- Anaconda prompt, 'python -V'
 - Packages:
 	- Python environment, 'print('matplotlib: %s' % matplotlib.__version__)'
 	
