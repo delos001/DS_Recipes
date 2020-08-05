@@ -12,3 +12,8 @@ ratingsdf=reviewsdf.drop(reviewsdf.columns[collist],1
 #does the same thing as above.  creates new df that filters 
 # for only the Ratings column
 ratingsdf=reviewsdf.filter(like="Ratings')
+
+                           
+## Select columns using if statement and the df shape
+## ix is all columns (data.shape[1] gives column number) that aren't 23abs
+ix = [i for i in range(data.shape[1]) if i != 23]                           
