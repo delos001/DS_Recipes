@@ -56,3 +56,8 @@ dfrtCol=['AL_2IATA_3ICAO','AL_ID','SourceAP_3IATA_4ICAO',
 dfap=pd.read_csv('airports.txt',names=dfapCol) 
 dfal=pd.read_csv('airlines.txt',names=dfalCol)
 dfrt=pd.read_csv('routes.txt',names=dfrtCol)
+
+#----------------------------------------------------------
+# EXAMPLE IDENTIFYING NA VALUES ON IMPORT
+url = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/horse-colic.csv'
+data13 = read_csv(url, header=None, na_values='?')
