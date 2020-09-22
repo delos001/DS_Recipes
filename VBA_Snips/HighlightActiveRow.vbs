@@ -1,3 +1,10 @@
+/// 
+there are two diff methods in this recipe
+1: uses vba only
+2: uses less vba and uses conditional formatting and named range
+///
+-------------------------------------------------------------------
+
 Private Sub Worksheet_SelectionChange(ByVal Target As Range)
 
     Dim LR As Long
@@ -10,4 +17,7 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range)
         Range(Cells(ActiveCell.Row, 1), Cells(ActiveCell.Row, LC)).Interior.ColorIndex = 4
     End If
 End Sub
+
+---------------------------------------------------------------------
+
 
