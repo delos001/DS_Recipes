@@ -19,3 +19,7 @@ Name2 = gsub("[^\x20-\x7E]", "", Name))
 #---------------------------------------------------------------------------
 # Remove : remove all non characters that aren't letter or number (includes spaces)
 Name = str_replace_all(Name, "[^[:alnum:]]", "")
+
+
+# Trim white space
+Name2 = trimws(which = c('left', 'right', 'both'), whitespace = '[ \\h\\v\t\r\n]')
