@@ -14,6 +14,7 @@ df$col. = gsub("\\*", "", df.col)
 # Remove non-ascii characters
 Name2 = gsub("[^\x20-\x7E]", "", Name))
 
+Name2 = str_replace_all(Name, "[^\x20-\x7E]", "")
 
 
 #---------------------------------------------------------------------------
