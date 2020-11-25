@@ -1,0 +1,8 @@
+foobar
+barfoo
+fooabcbar
+foobxcbar
+barcbyfoo
+foozbar
+barafoo
+barabfoo

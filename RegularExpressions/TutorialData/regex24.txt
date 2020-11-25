@@ -1,0 +1,6 @@
+sapwood
+rosewood
+logwood
+teakwood
+plywood
+redwood
