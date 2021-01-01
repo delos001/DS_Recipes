@@ -148,3 +148,81 @@ regex10 = read.csv(file.path(regpath, 'regex10.txt'), header = FALSE)
 
 pat = regex10 %>%
   dplyr::filter(grepl('[j-mJ-Mz]oo', V1))
+
+
+
+##  ESCAPING SPECIAL CHARACTERS WITH BACKSLASH----------------------------------
+
+
+## Using the \ to escape special characters
+##     pattern: any num of x's followed by period, followed by any num of y's
+regex11 = read.csv(file.path(regpath, 'regex11.txt'), header = FALSE)
+
+pat = regex11 %>%
+  dplyr::filter(grepl('x*\\.y', V1))
+
+
+## More complicated example requiring escape for special characters
+##      patttern: starts with x, contains #, :, or . and then ends with y
+##      note: : and # are not special characters so wouldn't need escape
+regex12 = read.csv(file.path(regpath, 'regex12.txt'), header = FALSE)
+
+pat = regex12 %>%
+  dplyr::filter(grepl('x[#:\\.]y', V1))
+
+## same as above but demonstrates you don't need to escape characters in sq brackets
+##    exception is ^ and - which have special meaning inside square brackets
+##    in square brackets: ^ means negate, - used to specify a range
+pat = regex12 %>%
+  dplyr::filter(grepl('x[#:.]y', V1))
+
+
+## Another example using escape: uses \\ in character brackets because of ^
+##    pattern: start with x, contains #, :, or ^ and ends with y
+regex13 = read.csv(file.path(regpath, 'regex13.txt'), header = FALSE)
+
+pat = regex13 %>%
+  dplyr::filter(grepl('x[\\^#:]y', V1))
+
+
+## Another exmaple using escape with additional special characters
+##  pattern: start with x, contains #, \ or : and ends with y
+regex14 = read.csv(file.path(regpath, 'regex14.txt'), header = FALSE)
+
+pat = regex14 %>%
+  dplyr::filter(grepl('x[#\\\\\\^]y', V1))
+
+
+
+#  ANCHORS----------------------------------------------------------------------
+
+##  Start of a string: the carrot anchor ^
+##     The ^ symbol means 'beginning of the text'
+##     Note ^ inside [] means to negate, but outside means 'beginning of line'
+
+## Example using ^ to specify pattern at beginning of string
+##   pattern: start with 'foo' then any chanaracter any number of times
+regex15 = read.csv(file.path(regpath, 'regex15.txt'), header = FALSE)
+
+pat = regex15 %>%
+  dplyr::filter(grepl('^foo.*', V1))
+
+
+##  End of a string: the $ anchor
+##  The $ symbol means 'end of the string'
+
+## Example using $ to specify pattern at end of string
+##   pattern: string ends with 'bar' and contains any characters in any amount prior to bar
+regex16 = read.csv(file.path(regpath, 'regex16.txt'), header = FALSE)
+
+pat = regex16 %>%
+  dplyr::filter(grepl('.*bar$', V1))
+
+
+## Example combining ^ and $
+##  pattern: nothing befor or after 'foo'
+
+regex17 = read.csv(file.path(regpath, 'regex17.txt'), header = FALSE)
+
+pat = regex17 %>%
+  dplyr::filter(grepl('^foo$', V1))
