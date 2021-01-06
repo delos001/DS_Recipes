@@ -145,6 +145,9 @@ fzzyJoin = fuzzy_left_join(D, C,
 
 fzzyJoin
 
+
+
+
 lbcovance_rawtest = lbcovance_raw %>%
   dplyr::filter(LBORRES == "NA") %>%
   dplyr::select(LBTEST)
