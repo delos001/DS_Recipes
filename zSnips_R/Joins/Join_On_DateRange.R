@@ -107,9 +107,9 @@ sqldatejoin3 = sqldf('SELECT * FROM A
 ##    there are multiple methods to join on dates with this package
 ##      this example uses interval_join
 
-##  NOTE: fuzzy join has high level of dependencies which can impact performance
-##     on large data sets.  Interval_join function requires IRanges package from
-##     Bioconductor
+##  NOTE: fuzzy join pkg has multiple functions. interval_join (not tested here)
+##     has high # of dependencies which can impact performance on lg data sets:
+##            Interval_join function requires IRanges package from Bioconductor
 
 library(fuzzyjoin)
 
@@ -136,8 +136,8 @@ D <- data.frame(aDate =
 ## left join example
 ##    options also include inner, right, full, semi, anti
 ##  notice order of tables and order of range dates vs. single join date
-fzzyJoin = fuzzy_left_join(D, C,
-                            by = c('name', 
+fzzyJoin = fuzzy_full_join(D, C,
+                            by = c('name' = 'name', 
                                    'aDate' = 'beginning', 
                                    'aDate' = 'ending'),
                             match_fun = list(`==`, `>=`, `<=`)
@@ -146,13 +146,6 @@ fzzyJoin = fuzzy_left_join(D, C,
 fzzyJoin
 
 
-
-
-lbcovance_rawtest = lbcovance_raw %>%
-  dplyr::filter(LBORRES == "NA") %>%
-  dplyr::select(LBTEST)
-
-table(lbcovance_rawtest$LBTEST)
 
 
 
