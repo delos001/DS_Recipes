@@ -68,7 +68,6 @@ names(testjoinR) = gsub('x.', '', names(testjoinR), fixed = TRUE)
 
 ## now we bind the tables together (have to exclude column names to do so) and 
 ##    then get unique rows
-
 testjoinFull = unique(rbind(testJoinR, testJoinL, use.names = FALSE))
 
 
@@ -109,14 +108,12 @@ sqldatejoin = sqldf('SELECT * FROM B
                     left outer join A
                     ON B.aDate BETWEEN A.beginning AND A.ending')
 
-sqldatejoin
 
 ## same but reverse the tables.  Notice the difference in outputs
 sqldatejoin2 = sqldf('SELECT * FROM A
                     left outer join B
                     ON B.aDate BETWEEN A.beginning AND A.ending')
 
-sqldatejoin2
 
 
 
@@ -186,7 +183,6 @@ fzzyJoin = fuzzy_full_join(D, C,
                             match_fun = list(`==`, `>=`, `<=`)
                             )
 
-fzzyJoin
 
 
 
