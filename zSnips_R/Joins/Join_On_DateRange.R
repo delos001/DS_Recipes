@@ -24,7 +24,7 @@ K <- data.table(aDate =
                 name = c('001','001','002','002', '003'),
                 other = c('a', 'b', 'c', 'd', 'e'))
 
-
+## BASIC LEFT OR RIGHT JOIN--------------------------------
 ##  X = left, Y = right:  this is Left Join (reverse for Right)
 ## Use Y[!X, on = .(name, foo, etc)] for antijoin
 testjoin = K[J,  
@@ -37,6 +37,39 @@ testjoin = K[J,
 
 testjoin
 
+
+## FULL JOIN--------------------------------
+## Full join capabilities on date range are not available using method above
+##   require manual work around and are quite frankly a huge PIA!
+
+## first we do a normal left join just like above
+testjoinL = K[J,  
+             .(name, ## chose columns to keep (i.colName gets cols from X)
+               beginning, ending,
+               x.other,
+               x.aDate), ## use x. to reflect table K
+             nomatch = NA,  ## use nomatch = 0 for inner join
+             on = .(name, aDate >= beginning, aDate <= ending)]
+
+testjoinL  ## see output
+
+## then we reverse variables to essentially do a right join
+##   note switch of df's, the 'x.' for variables and the reverse of 
+##     the inqueality order and inequality itself
+testjoinR = J[K,  
+             .(x.name, ## chose columns to keep 
+               x.beginning, ending,
+               other,
+               aDate), ## use x. to reflect table K
+             nomatch = NA,  ## use nomatch = 0 for inner join
+             on = .(name, beginning <= aDate, ending >= aDate)]
+
+testjoinR   ## see output
+
+## now we bind the tables together (have to exclude column names to do so) and 
+##    then get unique rows
+
+testjoinFull = unique(rbind(testJoinR, testJoinL, use.names = FALSE))
 
 
 ##------------------------------------------------------------------------------
