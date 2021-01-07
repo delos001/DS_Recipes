@@ -6,12 +6,11 @@
 ##      3: fuzzy join
 
 
-
 ##------------------------------------------------------------------------------
 ## DATA.TABLE PACKAGE date range join
 library(data.table)
 
-X <- data.table(beginning = 
+J <- data.table(beginning = 
                   as.Date(c('2010-01-15', '2010-01-24', '2010-01-15', 
                             '2010-01-24', '2010-01-15')), 
                 ending = 
@@ -19,21 +18,20 @@ X <- data.table(beginning =
                             '2010-01-28', '2010-01-22')),
                 name = c('001','001','002','002', '003'))
 
-Y <- data.table(aDate = 
+K <- data.table(aDate = 
                   as.Date(c('2010-01-23', '2010-01-26', '2010-01-17', 
                             '2010-01-27', '2010-01-23')),
                 name = c('001','001','002','002', '003'),
                 other = c('a', 'b', 'c', 'd', 'e'))
 
 
-
 ##  X = left, Y = right:  this is Left Join (reverse for Right)
 ## Use Y[!X, on = .(name, foo, etc)] for antijoin
-testjoin = Y[X,  
+testjoin = K[J,  
               .(name, ## chose columns to keep (i.colName gets cols from X)
-                beginning, ending, 
-                other, 
-                Y$aDate), 
+                beginning, ending,
+                other,
+                x.aDate), ## use x. to reflect table K
               nomatch = NA,  ## use nomatch = 0 for inner join
               on = .(name, aDate >= beginning, aDate <= ending)]
 
@@ -44,8 +42,6 @@ testjoin
 ##------------------------------------------------------------------------------
 ## SQLDF PACKAGE date range join
 ##    left and right join and also a full outer join which isn't complete
-
-
 
 library(sqldf)
 
@@ -81,7 +77,8 @@ sqldatejoin2
 
 ##  Example of full outer join ****Need to look up the sql joins*****
 ##  performing full outer join requires extra steps:
-##     https://stackoverflow.com/questions/16964799/how-can-i-perform-full-outer-joins-of-large-data-sets-in-r
+##  https://stackoverflow.com/questions/16964799/how-can-i-perform-full-outer-joins-of-large-data-sets-in-r
+
 dat1 <- data.frame(x = 1:5,y = letters[1:5])
 dat2 <- data.frame(w = 3:8,z = letters[3:8])
 
@@ -97,7 +94,6 @@ sqldatejoin3 = sqldf('SELECT * FROM A
                      select * FROM B 
                      left outer join A 
                      ON B.aDate BETWEEN A.beginning AND A.ending')
-
 
 
 
