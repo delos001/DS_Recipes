@@ -51,6 +51,7 @@ testjoinL = K[J,
                x.aDate), ## use x. to reflect table K
              nomatch = NA,  ## use nomatch = 0 for inner join
              on = .(name, aDate >= beginning, aDate <= ending)]
+names(testjoinL) = gsub('x.', '', names(testjoinL), fixed = TRUE)
 
 ## then we reverse variables to essentially do a right join
 ##   note switch of df's, the 'x.' for variables and the reverse of 
@@ -62,12 +63,13 @@ testjoinR = J[K,
                aDate), ## use x. to reflect table K
              nomatch = NA,  ## use nomatch = 0 for inner join
              on = .(name, beginning <= aDate, ending >= aDate)]
+names(testjoinR) = gsub('x.', '', names(testjoinR), fixed = TRUE)
 
 ## now we bind the tables together (have to exclude column names to do so) and 
 ##    then get unique rows
 
 testjoinFull = unique(rbind(testJoinR, testJoinL, use.names = FALSE))
-names(testjoinFull) = gsub('x.', '', names(testjoinFull), fixed = TRUE)
+
 
 
 ## ANTI-JOIN in between two dates--------------------------------
@@ -75,10 +77,10 @@ names(testjoinFull) = gsub('x.', '', names(testjoinFull), fixed = TRUE)
 
 testAntiJoin = rbind(testJoinR, testJoinL, use.names = FALSE) %>%
   dplyr::group_by_all() %>%
-  dplyr::mutate(Count2 = n()) %>%
-  dplyr::filter(Count2 != 2) %>%
-  dplyr::select(-Count2)
-names(testAntijoin) = gsub('x.', '', names(testjoinFull), fixed = TRUE)
+  dplyr::filter(n() == 1)
+
+
+
 
 
 ##------------------------------------------------------------------------------
