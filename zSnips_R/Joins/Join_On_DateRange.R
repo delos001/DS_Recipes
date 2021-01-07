@@ -27,8 +27,7 @@ K <- data.table(aDate =
                 other = c('a', 'b', 'c', 'd', 'e'))
 
 ## BASIC LEFT OR RIGHT JOIN in between 2 dates---------------------------
-##  X = left, Y = right:  this is Left Join (reverse for Right)
-## Use Y[!X, on = .(name, foo, etc)] for antijoin
+##  this is Left Join (reverse for Right)
 testjoin = K[J,  
               .(name, ## chose columns to keep (i.colName gets cols from X)
                 beginning, ending,
@@ -77,10 +76,9 @@ testjoinFull = unique(rbind(testJoinR, testJoinL, use.names = FALSE))
 ## ANTI-JOIN in between two dates--------------------------------
 ## uses the testjoinR and testjoinL from the outerjoin above
 
-testAntiJoin = rbind(testJoinR, testJoinL, use.names = FALSE) %>%
+testAntijoin = rbind(testJoinR, testJoinL, use.names = FALSE) %>%
   dplyr::group_by_all() %>%
   dplyr::filter(n() == 1)
-
 
 
 
