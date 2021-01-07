@@ -24,7 +24,7 @@ K <- data.table(aDate =
                 name = c('001','001','002','002', '003'),
                 other = c('a', 'b', 'c', 'd', 'e'))
 
-## BASIC LEFT OR RIGHT JOIN--------------------------------
+## BASIC LEFT OR RIGHT JOIN in between 2 dates---------------------------
 ##  X = left, Y = right:  this is Left Join (reverse for Right)
 ## Use Y[!X, on = .(name, foo, etc)] for antijoin
 testjoin = K[J,  
@@ -34,11 +34,12 @@ testjoin = K[J,
                 x.aDate), ## use x. to reflect table K
               nomatch = NA,  ## use nomatch = 0 for inner join
               on = .(name, aDate >= beginning, aDate <= ending)]
+## removs the period from the new column header names
+names(testjoin) = gsub('x.', '', names(testjoin), fixed = TRUE)
 
-testjoin
 
 
-## FULL JOIN--------------------------------
+## FULL JOIN in between two dates--------------------------------
 ## Full join capabilities on date range are not available using method above
 ##   require manual work around and are quite frankly a huge PIA!
 
@@ -51,8 +52,6 @@ testjoinL = K[J,
              nomatch = NA,  ## use nomatch = 0 for inner join
              on = .(name, aDate >= beginning, aDate <= ending)]
 
-testjoinL  ## see output
-
 ## then we reverse variables to essentially do a right join
 ##   note switch of df's, the 'x.' for variables and the reverse of 
 ##     the inqueality order and inequality itself
@@ -64,12 +63,22 @@ testjoinR = J[K,
              nomatch = NA,  ## use nomatch = 0 for inner join
              on = .(name, beginning <= aDate, ending >= aDate)]
 
-testjoinR   ## see output
-
 ## now we bind the tables together (have to exclude column names to do so) and 
 ##    then get unique rows
 
 testjoinFull = unique(rbind(testJoinR, testJoinL, use.names = FALSE))
+names(testjoinFull) = gsub('x.', '', names(testjoinFull), fixed = TRUE)
+
+
+## ANTI-JOIN in between two dates--------------------------------
+## uses the testjoinR and testjoinL from the outerjoin above
+
+testAntiJoin = rbind(testJoinR, testJoinL, use.names = FALSE) %>%
+  dplyr::group_by_all() %>%
+  dplyr::mutate(Count2 = n()) %>%
+  dplyr::filter(Count2 != 2) %>%
+  dplyr::select(-Count2)
+names(testAntijoin) = gsub('x.', '', names(testjoinFull), fixed = TRUE)
 
 
 ##------------------------------------------------------------------------------
