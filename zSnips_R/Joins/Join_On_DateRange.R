@@ -5,9 +5,11 @@
 ##      2: sqldf
 ##      3: fuzzy join
 
-
+##------------------------------------------------------------------------------
 ##------------------------------------------------------------------------------
 ## DATA.TABLE PACKAGE date range join
+##------------------------------------------------------------------------------
+
 library(data.table)
 
 J <- data.table(beginning = 
@@ -82,9 +84,10 @@ testAntiJoin = rbind(testJoinR, testJoinL, use.names = FALSE) %>%
 
 
 
-
+##------------------------------------------------------------------------------
 ##------------------------------------------------------------------------------
 ## SQLDF PACKAGE date range join
+##------------------------------------------------------------------------------
 ##    left and right join and also a full outer join which isn't complete
 
 library(sqldf)
@@ -140,9 +143,11 @@ sqldatejoin3 = sqldf('SELECT * FROM A
                      ON B.aDate BETWEEN A.beginning AND A.ending')
 
 
-
+##------------------------------------------------------------------------------
 ##------------------------------------------------------------------------------
 ## FUZZYJOIN date range join
+##------------------------------------------------------------------------------
+
 ##    https://cran.r-project.org/web/packages/fuzzyjoin/fuzzyjoin.pdf
 ##    there are multiple methods to join on dates with this package
 ##      this example uses interval_join
