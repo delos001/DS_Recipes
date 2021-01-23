@@ -44,13 +44,13 @@ names(testjoin) = gsub('x.', '', names(testjoin), fixed = TRUE)
 ## Full join capabilities on date range are not available using method above
 ##   require manual work around and are quite frankly a huge PIA!
 
-## first we do a normal left join just like above
+## first do a normal left join just like above
 testjoinL = K[J,  
-             .(name, ## chose columns to keep (i.colName gets cols from X)
+             .(name, ## chose columns to keep (i.colName gets cols from J)
                beginning, ending,
                x.other,
                x.aDate), ## use x. to reflect table K
-             nomatch = NA,  ## use nomatch = 0 for inner join
+             #nomatch = NA,  ## use nomatch = 0 for inner join
              on = .(name, aDate >= beginning, aDate <= ending)]
 names(testjoinL) = gsub('x.', '', names(testjoinL), fixed = TRUE)
 
@@ -58,11 +58,12 @@ names(testjoinL) = gsub('x.', '', names(testjoinL), fixed = TRUE)
 ##   note switch of df's, the 'x.' for variables and the reverse of 
 ##     the inqueality order and inequality itself
 testjoinR = J[K,  
-             .(x.name, ## chose columns to keep 
+              ## chose columns to keep
+             .(x.name,  ## use x. to reflect table K
                x.beginning, ending,
                other,
-               aDate), ## use x. to reflect table K
-             nomatch = NA,  ## use nomatch = 0 for inner join
+               aDate), 
+             #nomatch = NA,  ## use nomatch = 0 for inner join
              on = .(name, beginning <= aDate, ending >= aDate)]
 names(testjoinR) = gsub('x.', '', names(testjoinR), fixed = TRUE)
 
