@@ -26,3 +26,21 @@ x[-(1:6)]  # excludes 1:6 so: gives same result as x[7:12]
 x[c(1:5,10:12)]  # gives numbers of specified positions
 
 
+#---------------------------------------------------------
+#---------------------------------------------------------
+# LIST TO DATAFRAME
+#---------------------------------------------------------
+#---------------------------------------------------------
+
+## sample list
+bwHLA_LBSPID = c('HLA-A Allele 1' = 805, 
+                 'HLA-A Allele 2' = 878, 
+                 'HLA-B Allele 1' = 806)
+
+## create dataframe from bwHLA_LBSPID list
+bwHLA_LBSPIDdf = purrr::map2_df(bwHLA_LBSPID, names(bwHLA_LBSPID), 
+                                function(x, y){
+                                  data.frame(
+                                    LBTEST = y, 
+                                    LBSPID = as.character(x))
+                                })  
