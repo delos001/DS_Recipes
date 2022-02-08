@@ -14,3 +14,5 @@ new_variables$rain_seas = ifelse(
                                 (new_variables$city =="sj")) |
                                 (is.element(new_variables$month, iq_rain_months) &
                                 (new_variables$city =="iq")), 1, 0)
+
+##test add for demo delete later
