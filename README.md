@@ -38,7 +38,7 @@
 |pwd|	produce current path location
 |cd|	change directory
 |cd ..|	go up one level to parent folder
-|cd \|	go root directory
+|cd \ |	go root directory
 |ls	show| contents of current folder
 |ls -la|	show contents and size of files in current folder
 |\|	to start a command
