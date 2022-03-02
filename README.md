@@ -16,7 +16,13 @@
 ## GitHub Quick Commands
 |Command|	Result|
 |---|---|
+|git pull | Pull master to clone|
+|git add . | Add all updated files to staging|
+|git add 'filename' | Add specific file name to staging|
+|git commit -m'commit message' | Commit stage data prior to push - commit msg required|
+|git push | Push commited data to master|
 |git push -u origin master OR git push origin master|	Should prompt you to update password|
+|git --version| identify git version installed in environment|
 |git remote -v|	identify your repository URL|
 |git remote set-url origin https://Username@github.com/Username/MyRepo.git| manually set your repository URL|
 |```![image-name](https://github.com/path)```|place an image in a README.md|
@@ -32,6 +38,7 @@
 |pwd|	produce current path location
 |cd|	change directory
 |cd ..|	go up one level to parent folder
+|cd \|	go root directory
 |ls	show| contents of current folder
 |ls -la|	show contents and size of files in current folder
 |\|	to start a command
