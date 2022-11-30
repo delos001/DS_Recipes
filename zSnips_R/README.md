@@ -46,7 +46,9 @@ write.table(mydata,
 ## Other:
 ```
 Call another R script
-source('scriptname.R')
+source("some_script.R")         # In this directory
+source("../another_script.R")   # In the parent directory
+source("folder/stuff.R")        # In a child directory
 
 Document Session Info:
 sess = sessionInfo()

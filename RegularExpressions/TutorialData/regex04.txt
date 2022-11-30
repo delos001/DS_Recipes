@@ -1,0 +1,8 @@
+fooxxxbar
+foo   bar
+fooxbar
+fooxxbar
+foo bar
+foo      bar
+foobar
+fooyyybar
